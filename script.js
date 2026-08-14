@@ -37,8 +37,9 @@ function animate( time ) {
     if ( Math.abs( roll_x ) + Math.abs( roll_y ) < 0.01 ) {
       // console.log( 'stopped' );
       const quarter = Math.PI / 2;
-      cube.rotation.x = Math.round( cube.rotation.x / quarter ) * quarter;
-      cube.rotation.y = Math.round( cube.rotation.y / quarter ) * quarter;
+      cube.rotation.x += ( Math.round( cube.rotation.x / quarter ) * quarter - cube.rotation.x ) * 0.3;
+      cube.rotation.y += ( Math.round( cube.rotation.y / quarter ) * quarter - cube.rotation.y ) * 0.3;
+      // around 0.2-0.5 seems alright, might ask the team what they think
       roll_x = 0;
       roll_y = 0;
       stopped = true;
