@@ -13,6 +13,7 @@ const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
 const pic = loader.load('assets/placeholder.png');
 pic.magFilter = THREE.NearestFilter;
+/*
 const material = [
   new THREE.MeshStandardMaterial({ color: 0xF9C22E }), // right
   new THREE.MeshStandardMaterial({ color: 0x30C5FF }), // left
@@ -20,7 +21,13 @@ const material = [
   new THREE.MeshStandardMaterial({ color: 0x00CC66 }), // bottom
   new THREE.MeshStandardMaterial({ map: pic }), // front
   new THREE.MeshStandardMaterial({ color: 0xF26CA7 }) // back
-];const cube = new THREE.Mesh( geometry, material );
+];
+*/
+// testing beexel
+const beexel = loader.load( 'assets/beexel.png' );
+beexel.magFilter = THREE.NearestFilter;
+const material = new THREE.MeshStandardMaterial({ map: beexel });
+const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
 const container = new THREE.Group();
 container.rotation.x = Math.atan( 1 / Math.sqrt( 2 ) );
