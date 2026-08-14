@@ -24,8 +24,8 @@ camera.position.z = 5;
 
 function animate( time ) {
 
-  cube.rotation.x = time / 2000;
-  cube.rotation.y = time / 1000;
+  // cube.rotation.x = time / 2000;
+  // cube.rotation.y = time / 1000;
 
   renderer.render( scene, camera );
 
@@ -45,11 +45,15 @@ addEventListener( 'pointerup', () => {
   moving = false;
 });
 
+const moving_speed = 0.01;
+
 addEventListener( 'pointermove', e => {
   if ( !moving ) return;
   const diff_x = e.clientX - rembr_x;
   const diff_y = e.clientY - rembr_y;
-  console.log( diff_x, diff_y );
+  // console.log( diff_x, diff_y );
+  cube.rotation.y += diff_x * moving_speed;
+  cube.rotation.x += diff_y * moving_speed;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
 });
