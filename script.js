@@ -12,21 +12,22 @@ document.body.appendChild( renderer.domElement )
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
 const pic = loader.load('assets/placeholder.png');
+const beexel = loader.load('assets/beexel.png');
 pic.magFilter = THREE.NearestFilter;
-/*
+beexel.magFilter = THREE.NearestFilter;
+
 const material = [
-  new THREE.MeshStandardMaterial({ color: 0xF9C22E }), // right
-  new THREE.MeshStandardMaterial({ color: 0x30C5FF }), // left
-  new THREE.MeshStandardMaterial({ color: 0xF15946 }), // top
-  new THREE.MeshStandardMaterial({ color: 0x00CC66 }), // bottom
-  new THREE.MeshStandardMaterial({ map: pic }), // front
-  new THREE.MeshStandardMaterial({ color: 0xF26CA7 }) // back
+  new THREE.MeshStandardMaterial({ map: beexel }), // right
+  new THREE.MeshStandardMaterial({ map: beexel }), // left
+  new THREE.MeshStandardMaterial({ map: beexel }), // top
+  new THREE.MeshStandardMaterial({ map: beexel }), // bottom
+  new THREE.MeshStandardMaterial({ map: beexel }), // front
+  new THREE.MeshStandardMaterial({ map: beexel }) // back
 ];
-*/
+
 // testing beexel
 const beexel = loader.load( 'assets/beexel.png' );
 beexel.magFilter = THREE.NearestFilter;
-const material = new THREE.MeshStandardMaterial({ map: beexel });
 const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
 const container = new THREE.Group();
