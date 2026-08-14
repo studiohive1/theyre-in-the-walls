@@ -1,5 +1,8 @@
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const screen = 2;
+const ratio = innerWidth / innerHeight;
+const camera = new THREE.OrthographicCamera( -screen * ratio, screen * ratio, screen, -screen, 0.1, 1000 );
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setAnimationLoop( animate );
@@ -20,8 +23,8 @@ const material = [
 ];const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
 const container = new THREE.Group();
-container.rotation.x = Math.PI / 4;
-container.rotation.y = Math.atan( 1 / Math.sqrt( 2 ) );
+container.rotation.x = Math.atan( 1 / Math.sqrt( 2 ) );
+container.rotation.y = Math.PI / 4;
 // isometric
 container.add( cube );
 scene.add( container );
@@ -29,7 +32,7 @@ scene.add( container );
 scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
 
 const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
-light.position.set( -3, 4, 5 );
+light.position.set( -3, 8, 5 );
 scene.add( light );
 
 camera.position.z = 5;
