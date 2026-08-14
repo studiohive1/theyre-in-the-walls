@@ -9,6 +9,7 @@ document.body.appendChild( renderer.domElement )
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
 const pic = loader.load('assets/placeholder.png');
+pic.magFilter = THREE.NearestFilter;
 const material = [
   new THREE.MeshBasicMaterial({ color: 0xF9C22E }), // right
   new THREE.MeshBasicMaterial({ color: 0x30C5FF }), // left
