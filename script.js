@@ -33,6 +33,17 @@ function animate( time ) {
     roll_x *= 0.96;
     roll_y *= 0.96;
     // 0.96 or 0.97 seems fine for now, might adjust later!
+
+    if ( Math.abs( roll_x ) + Math.abs( roll_y ) < 0.01 ) {
+      // console.log( 'stopped' );
+      const quarter = Math.PI / 2;
+      cube.rotation.x = Math.round( cube.rotation.x / quarter ) * quarter;
+      cube.rotation.y = Math.round( cube.rotation.y / quarter ) * quarter;
+      roll_x = 0;
+      roll_y = 0;
+      stopped = true;
+    }
+
   }
 
   renderer.render( scene, camera );
@@ -44,6 +55,7 @@ let rembr_x = 0;
 let rembr_y = 0;
 
 addEventListener( 'pointerdown', e => {
+  stopped = false;
   moving = true;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
@@ -56,6 +68,7 @@ addEventListener( 'pointerup', () => {
 const moving_speed = 0.01;
 let roll_x = 0;
 let roll_y = 0;
+let stopped = false;
 
 addEventListener( 'pointermove', e => {
   if ( !moving ) return;
