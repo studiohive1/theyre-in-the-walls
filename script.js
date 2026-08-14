@@ -24,10 +24,8 @@ const material = [
   new THREE.MeshStandardMaterial({ map: beexel }), // front
   new THREE.MeshStandardMaterial({ map: beexel }) // back
 ];
-
 // testing beexel
-const beexel = loader.load( 'assets/beexel.png' );
-beexel.magFilter = THREE.NearestFilter;
+
 const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
 const container = new THREE.Group();
