@@ -39,7 +39,7 @@ scene.add( container );
 scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
 
 const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
-light.position.set( -3, 8, 5 );
+light.position.set( -5, 10, 5 );
 scene.add( light );
 
 camera.position.z = 5;
