@@ -30,3 +30,26 @@ function animate( time ) {
   renderer.render( scene, camera );
 
 }
+
+let moving = false;
+let rembr_x = 0;
+let rembr_y = 0;
+
+addEventListener( 'pointerdown', e => {
+  moving = true;
+  rembr_x = e.clientX;
+  rembr_y = e.clientY;
+});
+
+addEventListener( 'pointerup', () => {
+  moving = false;
+});
+
+addEventListener( 'pointermove', e => {
+  if ( !moving ) return;
+  const diff_x = e.clientX - rembr_x;
+  const diff_y = e.clientY - rembr_y;
+  console.log( diff_x, diff_y );
+  rembr_x = e.clientX;
+  rembr_y = e.clientY;
+});
