@@ -54,7 +54,11 @@ function animate( time ) {
   
   if ( container.position.y < 0 ) {
     container.position.y = 0;
-    jump = -jump * 0.4;
+    if ( Math.abs( jump ) < 0.04 ) {
+      jump = 0;
+    } else {
+      jump = -jump * 0.4;
+    }
   }
 
   if ( !moving ) {
@@ -94,7 +98,9 @@ addEventListener( 'pointerdown', e => {
 
 addEventListener( 'pointerup', () => {
   moving = false;
-  jump = 0.1;
+  const speed = Math.abs( roll_x ) + Math.abs( roll_y );
+  jump = Math.min( speed * 1.5, 0.15 );
+  // 1.5 and 0.15 feel good on a laptop for now, but need to be tested on mobile!
 });
 
 const moving_speed = 0.01;
