@@ -11,14 +11,26 @@ const loader = new THREE.TextureLoader();
 const pic = loader.load('assets/placeholder.png');
 pic.magFilter = THREE.NearestFilter;
 const material = [
-  new THREE.MeshBasicMaterial({ color: 0xF9C22E }), // right
-  new THREE.MeshBasicMaterial({ color: 0x30C5FF }), // left
-  new THREE.MeshBasicMaterial({ color: 0xF15946 }), // top
-  new THREE.MeshBasicMaterial({ color: 0x00CC66 }), // bottom
-  new THREE.MeshBasicMaterial({ map: pic }), // front
-  new THREE.MeshBasicMaterial({ color: 0xF26CA7 }) // back
+  new THREE.MeshStandardMaterial({ color: 0xF9C22E }), // right
+  new THREE.MeshStandardMaterial({ color: 0x30C5FF }), // left
+  new THREE.MeshStandardMaterial({ color: 0xF15946 }), // top
+  new THREE.MeshStandardMaterial({ color: 0x00CC66 }), // bottom
+  new THREE.MeshStandardMaterial({ map: pic }), // front
+  new THREE.MeshStandardMaterial({ color: 0xF26CA7 }) // back
 ];const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+// scene.add( cube );
+const container = new THREE.Group();
+container.rotation.x = Math.PI / 4;
+container.rotation.y = Math.atan( 1 / Math.sqrt( 2 ) );
+// isometric
+container.add( cube );
+scene.add( container );
+
+scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
+
+const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
+light.position.set( -3, 4, 5 );
+scene.add( light );
 
 camera.position.z = 5;
 
