@@ -49,6 +49,14 @@ function animate( time ) {
   // cube.rotation.x = time / 2000;
   // cube.rotation.y = time / 1000;
 
+  container.position.y += jump;
+  jump -= gravity;
+  
+  if ( container.position.y < 0 ) {
+    container.position.y = 0;
+    jump = -jump * 0.4;
+  }
+
   if ( !moving ) {
     cube.rotation.x += roll_x;
     cube.rotation.y += roll_y;
@@ -86,11 +94,14 @@ addEventListener( 'pointerdown', e => {
 
 addEventListener( 'pointerup', () => {
   moving = false;
+  jump = 0.1;
 });
 
 const moving_speed = 0.01;
 let roll_x = 0;
 let roll_y = 0;
+let jump = 0;
+const gravity = 0.01;
 let stopped = false;
 
 addEventListener( 'pointermove', e => {
