@@ -27,6 +27,14 @@ function animate( time ) {
   // cube.rotation.x = time / 2000;
   // cube.rotation.y = time / 1000;
 
+  if ( !moving ) {
+    cube.rotation.x += roll_x;
+    cube.rotation.y += roll_y;
+    roll_x *= 0.96;
+    roll_y *= 0.96;
+    // 0.96 or 0.97 seems fine for now, might adjust later!
+  }
+
   renderer.render( scene, camera );
 
 }
@@ -46,6 +54,8 @@ addEventListener( 'pointerup', () => {
 });
 
 const moving_speed = 0.01;
+let roll_x = 0;
+let roll_y = 0;
 
 addEventListener( 'pointermove', e => {
   if ( !moving ) return;
@@ -56,4 +66,6 @@ addEventListener( 'pointermove', e => {
   cube.rotation.x += diff_y * moving_speed;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
+  roll_x = diff_y * moving_speed;
+  roll_y = diff_x * moving_speed;
 });
