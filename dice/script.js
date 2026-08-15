@@ -86,9 +86,9 @@ function animate( time ) {
 
   if ( time - stamp > 1000 / 12 ) {
     stamp = time;
+    renderer.render( scene, camera );
   }
   // 8 or 12, depending on how fast we want the animation to be
-  renderer.render( scene, camera );
 
 }
 
