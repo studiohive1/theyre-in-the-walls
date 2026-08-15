@@ -45,6 +45,8 @@ scene.add( light );
 
 camera.position.z = 5;
 
+let stamp = 0;
+
 function animate( time ) {
 
   // cube.rotation.x = time / 2000;
@@ -79,9 +81,12 @@ function animate( time ) {
       roll_y = 0;
       stopped = true;
     }
-
   }
 
+  if ( time - stamp > 1000 / 8 ) {
+    stamp = time;
+  }
+  // 8 or 12, depending on how fast we want the animation to be
   renderer.render( scene, camera );
 
 }
