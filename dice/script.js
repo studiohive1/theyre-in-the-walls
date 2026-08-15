@@ -134,3 +134,11 @@ addEventListener( 'pointermove', e => {
   roll_x = limit( diff_y * moving_speed * 0.5 );
   roll_y = limit( diff_x * moving_speed * 0.5 );
 });
+
+const roll_btn = document.getElementById( 'roll_btn' );
+
+roll_btn.addEventListener( 'click', () => {
+  roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
+  roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
+  jump = Math.random() * 0.15;
+});
