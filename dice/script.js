@@ -58,6 +58,7 @@ scene.add( light );
 camera.position.z = 5;
 
 let stamp = 0;
+let shake = 0;
 
 function animate( time ) {
 
@@ -74,6 +75,13 @@ function animate( time ) {
     } else {
       jump = -jump * 0.4;
     }
+  }
+
+  if ( shake > 0.001 ) {
+    container.position.x = Math.sin( time / 30 ) * shake;
+    shake *= 0.9;
+  } else {
+    container.position.x = 0;
   }
 
   if ( !moving ) {
