@@ -83,7 +83,7 @@ function animate( time ) {
     }
   }
 
-  if ( time - stamp > 1000 / 8 ) {
+  if ( time - stamp > 1000 / 12 ) {
     stamp = time;
   }
   // 8 or 12, depending on how fast we want the animation to be
@@ -107,6 +107,7 @@ addEventListener( 'pointerup', () => {
   const speed = Math.abs( roll_x ) + Math.abs( roll_y );
   jump = Math.min( speed * 1.5, 0.15 );
   // 1.5 and 0.15 feel good on a laptop for now, but need to be tested on mobile!
+  console.log( 'roll', roll_x.toFixed(3), roll_y.toFixed(3) );
 });
 
 const moving_speed = 0.01;
@@ -115,6 +116,10 @@ let roll_y = 0;
 let jump = 0;
 const gravity = 0.01;
 let stopped = false;
+
+function limit( v ) {
+  return Math.max( -0.3, Math.min( 0.3, v ) );
+}
 
 addEventListener( 'pointermove', e => {
   if ( !moving ) return;
@@ -125,6 +130,6 @@ addEventListener( 'pointermove', e => {
   cube.rotation.x += diff_y * moving_speed;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
-  roll_x = diff_y * moving_speed;
-  roll_y = diff_x * moving_speed;
+  roll_x = limit( diff_y * moving_speed * 0.5 );
+  roll_y = limit( diff_x * moving_speed * 0.5 );
 });
