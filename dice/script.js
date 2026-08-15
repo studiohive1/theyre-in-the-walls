@@ -38,7 +38,18 @@ container.rotation.y = Math.PI / 4;
 container.add( cube );
 scene.add( container );
 
-scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
+// scene.add( new THREE.AmbientLight( 0xffffff, 0.6 ) );
+const light_up = new THREE.AmbientLight( 0xffffff, 0.6 );
+scene.add( light_up );
+
+function flick( colour ) {
+  light.color.set( colour );
+  light_up.color.set( colour );
+  setTimeout( () => {
+    light.color.set( 0xffffff );
+    light_up.color.set( 0xffffff );
+  }, 600 );
+}
 
 const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
 light.position.set( -5, 10, 5 );
