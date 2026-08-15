@@ -6,7 +6,9 @@ const camera = new THREE.OrthographicCamera( -screen * ratio, screen * ratio, sc
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setAnimationLoop( animate );
-renderer.setSize( window.innerWidth, window.innerHeight );
+// renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( innerWidth / 40, innerHeight / 40, false );
+// will adjust it again after getting the dice png file
 document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
