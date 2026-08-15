@@ -13,10 +13,8 @@ document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
-// const pic = loader.load('assets/placeholder.png');
-const beexel = loader.load('assets/beexel.png');
-const studio_hive = loader.load('assets/studio-hive.png');
-// pic.magFilter = THREE.NearestFilter;
+const beexel = loader.load('assets/beexel-32.png');
+const studio_hive = loader.load('assets/studio-hive-32.png');
 beexel.magFilter = THREE.NearestFilter;
 studio_hive.magFilter = THREE.NearestFilter;
 
