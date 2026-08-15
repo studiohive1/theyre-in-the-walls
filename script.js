@@ -7,26 +7,28 @@ const camera = new THREE.OrthographicCamera( -screen * ratio, screen * ratio, sc
 const renderer = new THREE.WebGLRenderer();
 renderer.setAnimationLoop( animate );
 // renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.setSize( innerWidth / 3, innerHeight / 3, false );
+renderer.setSize( innerWidth / 2, innerHeight / 2, false );
 // will adjust it again after getting the dice png file
 document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
-const pic = loader.load('assets/placeholder.png');
+// const pic = loader.load('assets/placeholder.png');
 const beexel = loader.load('assets/beexel.png');
-pic.magFilter = THREE.NearestFilter;
+const studio_hive = loader.load('assets/studio-hive.png');
+// pic.magFilter = THREE.NearestFilter;
 beexel.magFilter = THREE.NearestFilter;
+studio_hive.magFilter = THREE.NearestFilter;
 
 const material = [
-  new THREE.MeshStandardMaterial({ map: beexel }), // right
-  new THREE.MeshStandardMaterial({ map: beexel }), // left
-  new THREE.MeshStandardMaterial({ map: beexel }), // top
-  new THREE.MeshStandardMaterial({ map: beexel }), // bottom
-  new THREE.MeshStandardMaterial({ map: beexel }), // front
+  new THREE.MeshStandardMaterial({ map: studio_hive }), // right
+  new THREE.MeshStandardMaterial({ map: studio_hive }), // left
+  new THREE.MeshStandardMaterial({ map: studio_hive }), // top
+  new THREE.MeshStandardMaterial({ map: studio_hive }), // bottom
+  new THREE.MeshStandardMaterial({ map: studio_hive }), // front
   new THREE.MeshStandardMaterial({ map: beexel }) // back
 ];
-// testing beexel
+// testing beexel & studio-hive
 
 const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
