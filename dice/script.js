@@ -45,10 +45,29 @@ scene.add( light_up );
 function flick( colour ) {
   light.color.set( colour );
   light_up.color.set( colour );
+
+  setTimeout( () => {
+    light.color.set( 0xffffff );
+    light_up.color.set( 0xffffff );
+  }, 200 );
+  setTimeout( () => {
+    light.color.set( colour );
+    light_up.color.set( colour );
+  }, 400 );
+
   setTimeout( () => {
     light.color.set( 0xffffff );
     light_up.color.set( 0xffffff );
   }, 600 );
+}
+
+function right() {
+  flick( '#00CC66');
+}
+
+function wrong() {
+  flick( '#F15946' );
+  shake = 0.2;
 }
 
 const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
