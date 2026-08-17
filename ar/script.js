@@ -34,8 +34,10 @@ setInterval( () => {
 
     if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
       guide.textContent = "THAT'S RIGHT!";
+      guide.className = 'right';
     } else {
-      guide.textContent = 'hmm... i dont think thats what bert was looking for';
+      guide.textContent = 'hmm... not here! keep looking!';
+      guide.className = 'wrong';
     }
   });
 }, 1000 );

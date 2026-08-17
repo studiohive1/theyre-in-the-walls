@@ -32,3 +32,19 @@ body {
   object-fit: cover;
   display: block;
 }
+
+#guide.right { color: #00CC66; }
+#guide.wrong { color: #F15946; }
+#guide {
+  position: absolute;
+  top: 10%;
+  /* adjust later */
+  left: 50%;
+  transform: translateX( -50% );
+  margin: 0;
+  width: 80%;
+  font-family: 'quokka', system-ui;
+  font-size: 20px;
+  color: #F15946;
+  text-align: center;
+}
