@@ -14,20 +14,22 @@ document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
-const beexel = loader.load('assets/beexel-32.png');
-const studio_hive = loader.load('assets/studio-hive-32.png');
-beexel.magFilter = THREE.NearestFilter;
-studio_hive.magFilter = THREE.NearestFilter;
+
+function face( name ) {
+  const pic = loader.load( 'assets/cube-face-' + name + '-v1.png' );
+  pic.magFilter = THREE.NearestFilter;
+  return new THREE.MeshStandardMaterial({ map: pic });
+}
 
 const material = [
-  new THREE.MeshStandardMaterial({ map: studio_hive }), // right
-  new THREE.MeshStandardMaterial({ map: studio_hive }), // left
-  new THREE.MeshStandardMaterial({ map: studio_hive }), // top
-  new THREE.MeshStandardMaterial({ map: studio_hive }), // bottom
-  new THREE.MeshStandardMaterial({ map: studio_hive }), // front
-  new THREE.MeshStandardMaterial({ map: beexel }) // back
+  face( 'qr-1' ),    // right
+  face( 'qr-2' ),    // left
+  face( 'input-1' ), // top
+  face( 'input-2' ), // bottom
+  face( 'ar-1' ),    // front
+  face( 'ar-2' )     // back
 ];
-// testing beexel & studio-hive
+// updated with jaedan's cube face v1
 
 const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
