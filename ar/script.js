@@ -32,10 +32,10 @@ setInterval( () => {
       }
     }
 
-    if ( chosen.probability < 0.8 ) {
-      guide.textContent = 'hmm... i dont think thats what bert was looking for';
+    if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
+      guide.textContent = "THAT'S RIGHT!";
     } else {
-      guide.textContent = chosen.className + ' ' + Math.round( chosen.probability * 100 ) + '%';
+      guide.textContent = 'hmm... i dont think thats what bert was looking for';
     }
   });
 }, 1000 );
