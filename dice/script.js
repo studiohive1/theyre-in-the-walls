@@ -148,7 +148,7 @@ addEventListener( 'pointerup', () => {
   const speed = Math.abs( roll_x ) + Math.abs( roll_y );
   jump = Math.min( speed * 1.5, 0.15 );
   // 1.5 and 0.15 feel good on a laptop for now, but need to be tested on mobile!
-  console.log( 'roll', roll_x.toFixed(3), roll_y.toFixed(3) );
+  // console.log( 'roll', roll_x.toFixed(3), roll_y.toFixed(3) );
 });
 
 const moving_speed = 0.01;
@@ -182,3 +182,27 @@ roll_btn.addEventListener( 'click', () => {
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
   jump = Math.random() * 0.15;
 });
+
+const types = [
+  { name: 'qr',    dir: new THREE.Vector3( 1, 0, 0 ) },   // right
+  { name: 'qr',    dir: new THREE.Vector3( -1, 0, 0 ) },  // left
+  { name: 'input', dir: new THREE.Vector3( 0, 1, 0 ) },   // top
+  { name: 'input', dir: new THREE.Vector3( 0, -1, 0 ) },  // bottom
+  { name: 'ar',    dir: new THREE.Vector3( 0, 0, 1 ) },   // front
+  { name: 'ar',    dir: new THREE.Vector3( 0, 0, -1 ) }   // back
+];
+
+const up = new THREE.Vector3( 0, 1, 0 );
+
+function get_challenge() {
+  let chosen = types[0];
+  let highest = -2;
+  for ( const type of types ) {
+    const point = type.dir.clone().applyQuaternion( cube.quaternion ).dot( up );
+    if ( point > highest ) {
+      highest = point;
+      chosen = type;
+    }
+  }
+  return chosen;
+}
