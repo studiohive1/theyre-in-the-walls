@@ -1,1 +1,34 @@
-video { width: 100vw; }
+/*-- video { width: 100vw; } */
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #12263A;
+}
+
+#bar { padding: 16px; font-size: 28px; }
+
+#quest {
+  margin: 0 16px 12px;
+  padding: 16px;
+  background: #000;
+  color: #F9C22E;
+  font-family: 'quokka', system-ui;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+#view {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+#cam {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
