@@ -3,27 +3,35 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
     cam.srcObject = stream;
   })
   .catch( err => {
-    console.log( 'camera error', err.name );
+    guide.textContent = 'camera error: ' + err.name;
   });
 
 let model;
 
-tmImage.load( 'model/model.json', 'model/metadata.json' )
-  .then( m => {
-    model = m;
-    console.log( 'loaded', model.getTotalClasses() );
-  })
-  .catch( err => {
-    console.log( 'error', err.message );
-  });
-
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
 
+guide.textContent = 'loading model...';
+
+tf.setBackend( 'cpu' ).then( () => {
+  return tmImage.load( 'model/model.json', 'model/metadata.json' );
+}).then( m => {
+  model = m;
+  guide.textContent = 'model ready';
+}).catch( err => {
+  guide.textContent = 'model error: ' + err.message;
+});
+
+const frame = document.createElement( 'canvas' );
+frame.width = 224;
+frame.height = 224;
+
 setInterval( () => {
   if ( !model ) return;
+  if ( !cam.videoWidth ) return;
 
-  model.predict( cam ).then( result => {
+  frame.getContext( '2d' ).drawImage( cam, 0, 0, 224, 224 );
+  model.predict( frame ).then( result => {
 
     let chosen = result[0];
     for ( const one of result ) {
@@ -39,5 +47,9 @@ setInterval( () => {
       guide.textContent = 'hmm... not here! keep looking!';
       guide.className = 'wrong';
     }
+
+  }).catch( err => {
+    guide.textContent = 'predict error: ' + err.message;
   });
-}, 1000 );
+
+}, 2000 );
