@@ -9,7 +9,7 @@ renderer.setAnimationLoop( animate );
 // renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setSize( innerWidth / 2, innerHeight / 2, false );
 // will adjust it again after getting the dice png file
-renderer.setClearColor( 0x5448C8 );
+renderer.setClearColor( 0x12263A );
 document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
