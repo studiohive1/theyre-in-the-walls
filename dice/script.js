@@ -143,11 +143,11 @@ let rembr_x = 0;
 let rembr_y = 0;
 
 addEventListener( 'pointerdown', e => {
+  if ( done ) return;
   stopped = false;
   moving = true;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
-  done = false;
   card.classList.remove( 'show' );
 });
 
@@ -186,10 +186,10 @@ addEventListener( 'pointermove', e => {
 const roll_btn = document.getElementById( 'roll_btn' );
 
 roll_btn.addEventListener( 'click', () => {
+  if ( done ) return;
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
   jump = 0.1 + Math.random() * 0.05;
-  done = false;
   card.classList.remove( 'show' );
 });
 
