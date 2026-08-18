@@ -82,6 +82,7 @@ let stamp = 0;
 let shake = 0;
 let done = false;
 const card = document.getElementById( 'card' );
+let rolled = false;
 
 function animate( time ) {
 
@@ -122,7 +123,7 @@ function animate( time ) {
       stopped = true;
     }
 
-    if ( stopped && jump === 0 && !done ) {
+    if ( rolled && stopped && jump === 0 && !done ) {
       done = true;
       card.textContent = get_challenge().label;
       card.className = 'show ' + get_challenge().name;
@@ -148,7 +149,6 @@ addEventListener( 'pointerdown', e => {
   moving = true;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
-  card.classList.remove( 'show' );
 });
 
 addEventListener( 'pointerup', () => {
@@ -157,6 +157,7 @@ addEventListener( 'pointerup', () => {
   jump = Math.min( speed * 1.5, 0.15 );
   // 1.5 and 0.15 feel good on a laptop for now, but need to be tested on mobile!
   // console.log( 'roll', roll_x.toFixed(3), roll_y.toFixed(3) );
+  if ( speed > 0.01 ) rolled = true;
 });
 
 const moving_speed = 0.01;
@@ -190,7 +191,7 @@ roll_btn.addEventListener( 'click', () => {
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
   jump = 0.1 + Math.random() * 0.05;
-  card.classList.remove( 'show' );
+  rolled = true;
 });
 
 const types = [
