@@ -72,6 +72,10 @@ function wrong() {
   shake = 0.2;
 }
 
+function move() {
+  location.href = '../' + get_challenge().name + '/';
+}
+
 const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
 light.position.set( -5, 10, 5 );
 scene.add( light );
@@ -188,7 +192,10 @@ addEventListener( 'pointermove', e => {
 const action_btn = document.getElementById( 'action_btn' );
 
 action_btn.addEventListener( 'click', () => {
-  if ( done ) return;
+  if ( done ) {
+    move();
+    return;
+  }
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
   jump = 0.1 + Math.random() * 0.05;
@@ -218,3 +225,8 @@ function get_challenge() {
   }
   return chosen;
 }
+
+card.addEventListener( 'click', () => {
+  if ( !done ) return;
+  move();
+});
