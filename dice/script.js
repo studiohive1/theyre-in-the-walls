@@ -80,6 +80,8 @@ camera.position.z = 5;
 
 let stamp = 0;
 let shake = 0;
+let done = false;
+const card = document.getElementById( 'card' );
 
 function animate( time ) {
 
@@ -119,6 +121,13 @@ function animate( time ) {
       cube.rotation.y += ( Math.round( cube.rotation.y / quarter ) * quarter - cube.rotation.y ) * 0.15;
       stopped = true;
     }
+
+    if ( stopped && jump === 0 && !done ) {
+      done = true;
+      card.textContent = 'TAKE A PHOTO';
+      card.classList.add( 'show' );
+    }
+
   }
 
   if ( time - stamp > 1000 / 12 ) {
@@ -138,6 +147,8 @@ addEventListener( 'pointerdown', e => {
   moving = true;
   rembr_x = e.clientX;
   rembr_y = e.clientY;
+  done = false;
+  card.classList.remove( 'show' );
 });
 
 addEventListener( 'pointerup', () => {
@@ -178,6 +189,8 @@ roll_btn.addEventListener( 'click', () => {
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
   jump = 0.1 + Math.random() * 0.05;
+  done = false;
+  card.classList.remove( 'show' );
 });
 
 const types = [
