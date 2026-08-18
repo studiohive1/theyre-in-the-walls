@@ -127,6 +127,7 @@ function animate( time ) {
       done = true;
       card.textContent = get_challenge().label;
       card.className = 'show ' + get_challenge().name;
+      action_btn.textContent = 'CHALLENGE ACCEPTED!';
     }
 
   }
@@ -184,9 +185,9 @@ addEventListener( 'pointermove', e => {
   roll_y = limit( diff_x * moving_speed * 0.5 );
 });
 
-const roll_btn = document.getElementById( 'roll_btn' );
+const action_btn = document.getElementById( 'action_btn' );
 
-roll_btn.addEventListener( 'click', () => {
+action_btn.addEventListener( 'click', () => {
   if ( done ) return;
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );

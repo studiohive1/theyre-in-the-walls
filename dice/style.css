@@ -6,7 +6,7 @@ canvas {
   image-rendering: pixelated;
 }
 
-#roll_btn {
+#action_btn {
   position: fixed;
   bottom: 15%;
   left: 50%;
