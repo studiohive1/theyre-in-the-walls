@@ -124,8 +124,8 @@ function animate( time ) {
 
     if ( stopped && jump === 0 && !done ) {
       done = true;
-      card.textContent = 'TAKE A PHOTO';
-      card.classList.add( 'show' );
+      card.textContent = get_challenge().label;
+      card.className = 'show ' + get_challenge().name;
     }
 
   }
@@ -194,12 +194,12 @@ roll_btn.addEventListener( 'click', () => {
 });
 
 const types = [
-  { name: 'qr',    dir: new THREE.Vector3( 1, 0, 0 ) },   // right
-  { name: 'qr',    dir: new THREE.Vector3( -1, 0, 0 ) },  // left
-  { name: 'input', dir: new THREE.Vector3( 0, 1, 0 ) },   // top
-  { name: 'input', dir: new THREE.Vector3( 0, -1, 0 ) },  // bottom
-  { name: 'ar',    dir: new THREE.Vector3( 0, 0, 1 ) },   // front
-  { name: 'ar',    dir: new THREE.Vector3( 0, 0, -1 ) }   // back
+  { name: 'qr',    dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' }, // right
+  { name: 'qr',    dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' }, // left
+  { name: 'input', dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },  // top
+  { name: 'input', dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },  // bottom
+  { name: 'ar',    dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' }, // front
+  { name: 'ar',    dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }  // back
 ];
 
 const up = new THREE.Vector3( 0, 1, 0 );
