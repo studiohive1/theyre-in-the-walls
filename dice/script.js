@@ -177,7 +177,7 @@ const roll_btn = document.getElementById( 'roll_btn' );
 roll_btn.addEventListener( 'click', () => {
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
-  jump = Math.random() * 0.15;
+  jump = 0.1 + Math.random() * 0.05;
 });
 
 const types = [
