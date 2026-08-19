@@ -11,13 +11,14 @@ body {
 #bar { padding: 16px; font-size: 28px; }
 
 #challenge {
-  margin: 0 16px 12px;
+  margin: 0 0 0;
   padding: 16px;
   background: #000;
   color: #F9C22E;
-  font-family: 'quokka', system-ui;
-  font-size: 18px;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
   line-height: 1.4;
+  border: 10px solid #C96EBD;
 }
 
 #view {
@@ -43,8 +44,42 @@ body {
   transform: translateX( -50% );
   margin: 0;
   width: 80%;
-  font-family: 'quokka', system-ui;
+  font-family: 'Jersey 25', system-ui;
   font-size: 20px;
   color: #F15946;
   text-align: center;
+}
+
+#back {
+  width: 72px;
+  height: 72px;
+  border: none;
+  background: url(assets/button-back.png) no-repeat;
+  cursor: pointer;
+}
+
+#back:active {
+  background-image: url(assets/button-back-pressed.png);
+}
+
+#settings {
+  width: 72px;
+  height: 72px;
+  border: none;
+  background: url(assets/button-settings.png) no-repeat;
+  cursor: pointer;
+}
+
+#settings:active {
+  background-image: url(assets/button-settings-pressed.png);
+}
+
+#bar {
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
 }
