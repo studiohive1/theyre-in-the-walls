@@ -190,11 +190,12 @@ addEventListener( 'pointermove', e => {
 });
 
 const action_btn = document.getElementById( 'action_btn' );
-const click_sound = new Audio( 'assets/test-click.wav' );
+const btn_sound = new Audio( 'assets/sound-button.wav' );
+const click_sound = new Audio( 'assets/sound-click.wav' );
 
 action_btn.addEventListener( 'click', () => {
-  click_sound.currentTime = 0;
-  click_sound.play();
+  btn_sound.currentTime = 0;
+  btn_sound.play();
   if ( done ) {
     move();
     return;
@@ -232,4 +233,14 @@ function get_challenge() {
 card.addEventListener( 'click', () => {
   if ( !done ) return;
   move();
+});
+
+settings.addEventListener( 'click', () => {
+  click_sound.currentTime = 0;
+  click_sound.play();
+});
+
+back.addEventListener( 'click', () => {
+  click_sound.currentTime = 0;
+  click_sound.play();
 });
