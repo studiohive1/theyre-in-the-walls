@@ -6,28 +6,6 @@ canvas {
   image-rendering: pixelated;
 }
 
-/*
-#action_btn {
-  position: fixed;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 16px 0;
-  width: 80vw;
-  max-width: 400px;
-  border: none;
-  border-radius: 999px;
-  background: #F9C22E;
-  color: #12263A;
-  font-family: 'quokka', system-ui;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  box-shadow: 0 10px 0 #000;
-  cursor: pointer;
-}
-*/
-
 #action_btn {
   position: fixed;
   bottom: 15%;
@@ -38,18 +16,18 @@ canvas {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  background: url(assets/longer-button.png) no-repeat;
   color: #12263A;
   font-family: 'Jersey 25', system-ui;
   font-size: 20px;
   letter-spacing: 1px;
   cursor: pointer;
+  background: url(assets/button-longer.png) no-repeat;
 }
 
 #action_btn:active {
-  background-image: url(assets/longer-button-pressed.png);
   padding-bottom: 0;
   padding-top: 9px;
+  background-image: url(assets/button-longer-pressed.png);
 }
 
 #card {
@@ -73,3 +51,27 @@ canvas {
 #card.qr    { background: #30C5FF; }
 #card.input { background: #EB6F00; }
 #card.ar    { background: #C96EBD; }
+
+#back {
+  width: 72px;
+  height: 72px;
+  border: none;
+  background: url(assets/button-back.png) no-repeat;
+  cursor: pointer;
+}
+
+#back:active {
+  background-image: url(assets/button-back-pressed.png);
+}
+
+#settings {
+  width: 72px;
+  height: 72px;
+  border: none;
+  background: url(assets/button-settings.png) no-repeat;
+  cursor: pointer;
+}
+
+#settings:active {
+  background-image: url(assets/button-settings-pressed.png);
+}
