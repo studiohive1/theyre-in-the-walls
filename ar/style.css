@@ -83,3 +83,25 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+#swap {
+  width: 123px;
+  height: 34px;
+  border: none;
+  background: url(assets/button-swap.png) no-repeat;
+  cursor: pointer;
+}
+
+#hint {
+  width: 123px;
+  height: 34px;
+  border: none;
+  background: url(assets/button-hint.png) no-repeat;
+  cursor: pointer;
+}
+
+#help {
+  display: flex;
+  gap: 12px;
+  padding: 20px 16px;
+}
