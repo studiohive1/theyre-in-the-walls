@@ -75,3 +75,14 @@ canvas {
 #settings:active {
   background-image: url(assets/button-settings-pressed.png);
 }
+
+#bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
