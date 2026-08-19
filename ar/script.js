@@ -64,4 +64,5 @@ settings.addEventListener( 'click', () => {
 back.addEventListener( 'click', () => {
   click_sound.currentTime = 0;
   click_sound.play();
+  location.href = '../';
 });

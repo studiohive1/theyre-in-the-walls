@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   background: #12263A;
+  align-items: center;
 }
 
 #bar { padding: 16px; font-size: 28px; }
@@ -18,7 +19,7 @@ body {
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 1.4;
-  border: 10px solid #C96EBD;
+  border: 10px solid #30C5FF;
 }
 
 #view {
@@ -82,6 +83,12 @@ body {
   padding: 16px;
   display: flex;
   justify-content: space-between;
+}
+
+#animation {
+  margin-top: 40px;
+  max-width: 80vw;
+  image-rendering: pixelated;
 }
 
 /*
