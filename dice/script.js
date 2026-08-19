@@ -190,8 +190,11 @@ addEventListener( 'pointermove', e => {
 });
 
 const action_btn = document.getElementById( 'action_btn' );
+const click_sound = new Audio( 'assets/test-click.wav' );
 
 action_btn.addEventListener( 'click', () => {
+  click_sound.currentTime = 0;
+  click_sound.play();
   if ( done ) {
     move();
     return;
