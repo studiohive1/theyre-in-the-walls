@@ -6,6 +6,7 @@ canvas {
   image-rendering: pixelated;
 }
 
+/*
 #action_btn {
   position: fixed;
   bottom: 15%;
@@ -24,6 +25,31 @@ canvas {
   letter-spacing: 1px;
   box-shadow: 0 10px 0 #000;
   cursor: pointer;
+}
+*/
+
+#action_btn {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  width: 290px;
+  height: 54px;
+  padding-bottom: 9px;
+  border: none;
+  background: url(assets/longer-button.png) no-repeat;
+  color: #12263A;
+  font-family: 'quokka', system-ui;
+  font-size: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#action_btn:active {
+  background-image: url(assets/longer-button-pressed.png);
+  padding-bottom: 0;
+  padding-top: 9px;
 }
 
 #card {
