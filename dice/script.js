@@ -16,20 +16,20 @@ const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
 
 function face( name ) {
-  const pic = loader.load( 'assets/cube-face-' + name + '-v1.png' );
+  const pic = loader.load( 'assets/cube-face-' + name + '-v3-locked.png' );
   pic.magFilter = THREE.NearestFilter;
   return new THREE.MeshStandardMaterial({ map: pic });
 }
 
 const material = [
-  face( 'qr-1' ),    // right
-  face( 'qr-2' ),    // left
-  face( 'input-1' ), // top
-  face( 'input-2' ), // bottom
-  face( 'ar-1' ),    // front
-  face( 'ar-2' )     // back
+  face( 'qr' ),    // right
+  face( 'qr' ),    // left
+  face( 'input' ), // top
+  face( 'input' ), // bottom
+  face( 'ar' ),    // front
+  face( 'ar' )     // back
 ];
-// updated with jaedan's cube face v1
+// updated with jaedan's cube face v3
 
 const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
