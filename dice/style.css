@@ -1,4 +1,4 @@
-body { margin: 0; background: #12263A; overflow: hidden; }
+body { margin: 0; background: #15131E; overflow: hidden; }
 
 canvas {
   width: 100vw;
@@ -16,7 +16,7 @@ canvas {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  color: #12263A;
+  color: #15131E;
   font-family: 'Jersey 25', system-ui;
   font-size: 20px;
   letter-spacing: 1px;

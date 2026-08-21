@@ -5,7 +5,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #12263A;
+  background: #15131E;
 }
 
 #bar { padding: 16px; font-size: 28px; }
