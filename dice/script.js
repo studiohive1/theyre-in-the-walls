@@ -16,7 +16,7 @@ const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
 
 function face( name ) {
-  const pic = loader.load( 'assets/cube-face-' + name + '-v3-locked.png' );
+  const pic = loader.load( 'assets/cube-face-' + name + '-v4-locked.png' );
   pic.magFilter = THREE.NearestFilter;
   return new THREE.MeshStandardMaterial({ map: pic });
 }
@@ -29,7 +29,7 @@ const material = [
   face( 'ar' ),    // front
   face( 'ar' )     // back
 ];
-// updated with jaedan's cube face v3
+// updated with jaedan's cube face v4
 
 const cube = new THREE.Mesh( geometry, material );
 // scene.add( cube );
