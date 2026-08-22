@@ -3,12 +3,15 @@
 body {
   margin: 0;
   height: 100vh;
+  padding: 0 16px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background: #15131E;
 }
 
 #challenge {
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -90,17 +93,13 @@ body {
 }
 
 #bar {
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 16px;
+  padding: 16px 0;
   display: flex;
   justify-content: space-between;
 }
 
 #help {
-  padding: 16px;
+  padding: 16px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
