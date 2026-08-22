@@ -55,14 +55,25 @@ setInterval( () => {
 }, 2000 );
 
 const click_sound = new Audio( 'assets/sound-click.wav' );
+const button_sound = new Audio( 'assets/sound-button.wav' );
 
-pause.addEventListener( 'click', () => {
-  click_sound.currentTime = 0;
-  click_sound.play();
+function play( sound ) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
+submit.addEventListener( 'click', () => {
+  play( button_sound );
 });
 
-back.addEventListener( 'click', () => {
-  click_sound.currentTime = 0;
-  click_sound.play();
-  location.href = '../';
+pause.addEventListener( 'click', () => {
+  play( click_sound );
+});
+
+reroll.addEventListener( 'click', () => {
+  play( click_sound );
+});
+
+hint.addEventListener( 'click', () => {
+  play( click_sound );
 });

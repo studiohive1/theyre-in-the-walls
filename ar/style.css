@@ -8,8 +8,6 @@ body {
   background: #15131E;
 }
 
-#bar { padding: 16px; font-size: 28px; }
-
 #challenge {
   margin: 0 0 0;
   padding: 16px;
@@ -50,9 +48,10 @@ body {
   text-align: center;
 }
 
+/*
 #back {
-  width: 72px;
-  height: 72px;
+  width: 62px;
+  height: 64px;
   border: none;
   background: url(assets/button-back.png) no-repeat;
   cursor: pointer;
@@ -61,10 +60,11 @@ body {
 #back:active {
   background-image: url(assets/button-back-pressed.png);
 }
+*/
 
 #pause {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 62px;
   border: none;
   background: url(assets/button-pause.png) no-repeat;
   cursor: pointer;
@@ -84,24 +84,53 @@ body {
   justify-content: space-between;
 }
 
-#swap {
-  width: 123px;
-  height: 34px;
+#help {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#submit {
+  box-sizing: border-box;
+  width: 189px;
+  height: 65px;
+  padding-bottom: 11px;
   border: none;
-  background: url(assets/button-swap.png) no-repeat;
+  background: url(assets/button.png) no-repeat;
+  color: #15131E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 20px;
+  letter-spacing: 1px;
   cursor: pointer;
 }
 
+#submit:active {
+  background-image: url(assets/button-pressed.png);
+  padding-bottom: 3px;
+  padding-top: 8px;
+}
+
+#reroll {
+  width: 60px;
+  height: 62px;
+  border: none;
+  background: url(assets/button-reroll.png) no-repeat;
+  cursor: pointer;
+}
+
+#reroll:active {
+  background-image: url(assets/button-reroll-pressed.png);
+}
+
 #hint {
-  width: 123px;
-  height: 34px;
+  width: 60px;
+  height: 62px;
   border: none;
   background: url(assets/button-hint.png) no-repeat;
   cursor: pointer;
 }
 
-#help {
-  display: flex;
-  gap: 12px;
-  padding: 20px 16px;
+#hint:active {
+  background-image: url(assets/button-hint-pressed.png);
 }
