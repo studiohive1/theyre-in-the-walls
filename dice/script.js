@@ -240,10 +240,12 @@ pause.addEventListener( 'click', () => {
   click_sound.play();
 });
 
+/*
 back.addEventListener( 'click', () => {
   click_sound.currentTime = 0;
   click_sound.play();
 });
+*/
 
 const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
 const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';

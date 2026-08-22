@@ -52,6 +52,7 @@ canvas {
 #card.input { background: #EB6F00; }
 #card.ar    { background: #C96EBD; }
 
+/*
 #back {
   width: 72px;
   height: 72px;
@@ -63,6 +64,7 @@ canvas {
 #back:active {
   background-image: url(assets/button-back-pressed.png);
 }
+*/
 
 #pause {
   width: 72px;
