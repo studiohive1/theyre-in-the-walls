@@ -235,7 +235,7 @@ card.addEventListener( 'click', () => {
   move();
 });
 
-settings.addEventListener( 'click', () => {
+pause.addEventListener( 'click', () => {
   click_sound.currentTime = 0;
   click_sound.play();
 });

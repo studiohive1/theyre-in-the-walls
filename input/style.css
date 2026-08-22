@@ -63,16 +63,16 @@ body {
   background-image: url(assets/button-back-pressed.png);
 }
 
-#settings {
+#pause {
   width: 72px;
   height: 72px;
   border: none;
-  background: url(assets/button-settings.png) no-repeat;
+  background: url(assets/button-pause.png) no-repeat;
   cursor: pointer;
 }
 
-#settings:active {
-  background-image: url(assets/button-settings-pressed.png);
+#pause:active {
+  background-image: url(assets/button-pause-pressed.png);
 }
 
 #bar {

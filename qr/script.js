@@ -1,6 +1,6 @@
 const click_sound = new Audio( 'assets/sound-click.wav' );
 
-settings.addEventListener( 'click', () => {
+pause.addEventListener( 'click', () => {
   click_sound.currentTime = 0;
   click_sound.play();
 });
