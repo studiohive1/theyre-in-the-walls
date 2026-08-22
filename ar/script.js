@@ -55,7 +55,6 @@ setInterval( () => {
 }, 2000 );
 
 const click_sound = new Audio( 'assets/sound-click.wav' );
-const button_sound = new Audio( 'assets/sound-button.wav' );
 
 function play( sound ) {
   sound.currentTime = 0;
@@ -63,14 +62,10 @@ function play( sound ) {
 }
 
 submit.addEventListener( 'click', () => {
-  play( button_sound );
-});
-
-pause.addEventListener( 'click', () => {
   play( click_sound );
 });
 
-reroll.addEventListener( 'click', () => {
+pause.addEventListener( 'click', () => {
   play( click_sound );
 });
 
@@ -80,15 +75,15 @@ hint.addEventListener( 'click', () => {
 
 reroll.addEventListener( 'click', () => {
   play( click_sound );
-  popup_reroll.className = 'show';
+  overlay.className = 'show';
 });
 
 popup_close.addEventListener( 'click', () => {
   play( click_sound );
-  popup_reroll.className = '';
+  overlay.className = '';
 });
 
 popup_yes.addEventListener( 'click', () => {
-  play( button_sound );
+  play( click_sound );
   location.href = '../dice/';
 });
