@@ -77,3 +77,18 @@ reroll.addEventListener( 'click', () => {
 hint.addEventListener( 'click', () => {
   play( click_sound );
 });
+
+reroll.addEventListener( 'click', () => {
+  play( click_sound );
+  popup_reroll.className = 'show';
+});
+
+popup_close.addEventListener( 'click', () => {
+  play( click_sound );
+  popup_reroll.className = '';
+});
+
+popup_yes.addEventListener( 'click', () => {
+  play( button_sound );
+  location.href = '../dice/';
+});
