@@ -244,3 +244,17 @@ back.addEventListener( 'click', () => {
   click_sound.currentTime = 0;
   click_sound.play();
 });
+
+const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
+const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';
+const db = supabase.createClient( supa_api, supa_key );
+
+const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
+// testing with my user id for now!
+
+db.from( 'progress' )
+  .select()
+  .eq( 'user_id', test_user )
+  .then( result => {
+    console.log( result );
+  });
