@@ -3,57 +3,86 @@
 body {
   margin: 0;
   height: 100vh;
+  padding: 0 16px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background: #15131E;
-  align-items: center;
 }
-
-#bar { padding: 16px; font-size: 28px; }
 
 #challenge {
-  margin: 0 0 0;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-style: solid;
+  border-width: 20px;
+  border-image-source: url(assets/challenge-input.png);
+  border-image-slice: 20 fill;
+  image-rendering: pixelated;
+  background: none;
+}
+
+#talk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#code {
   padding: 16px;
-  background: #000;
-  color: #F9C22E;
+  background: #E1DFDF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.yellow { background: #F9C22E; }
+.green  { background: #00CC66; }
+.red    { background: #F15946; }
+
+.slash {
+  color: #12263A;
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
-  line-height: 1.4;
-  border: 10px solid #EB6F00;
 }
 
-#view {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-}
-
-#cam {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-#guide.right { color: #00CC66; }
-#guide.wrong { color: #F15946; }
-#guide {
-  position: absolute;
-  top: 10%;
-  /* adjust later */
-  left: 50%;
-  transform: translateX( -50% );
+#question {
   margin: 0;
-  width: 80%;
+  color: #00CC66;
   font-family: 'Jersey 25', system-ui;
-  font-size: 20px;
-  color: #F15946;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+#answer {
+  background: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border-style: solid;
+  border-width: 12px;
+  border-image-source: url(assets/answer-box.png);
+  border-image-slice: 12 fill;
+  image-rendering: pixelated;
+  padding: 0 8px;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
   text-align: center;
 }
 
+/*
 #back {
-  width: 72px;
-  height: 72px;
+  width: 62px;
+  height: 64px;
   border: none;
   background: url(assets/button-back.png) no-repeat;
   cursor: pointer;
@@ -62,10 +91,11 @@ body {
 #back:active {
   background-image: url(assets/button-back-pressed.png);
 }
+*/
 
 #pause {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 62px;
   border: none;
   background: url(assets/button-pause.png) no-repeat;
   cursor: pointer;
@@ -76,41 +106,101 @@ body {
 }
 
 #bar {
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 16px;
+  padding: 16px 0;
   display: flex;
   justify-content: space-between;
 }
 
-#animation {
-  margin-top: 40px;
-  max-width: 80vw;
-  image-rendering: pixelated;
+#help {
+  margin-top: auto;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/*
-#swap {
-  width: 123px;
-  height: 34px;
+#submit {
+  box-sizing: border-box;
+  width: 189px;
+  height: 65px;
+  padding-bottom: 11px;
   border: none;
-  background: url(assets/button-swap.png) no-repeat;
+  background: url(assets/button.png) no-repeat;
+  color: #15131E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  letter-spacing: 1px;
   cursor: pointer;
 }
 
+#submit:active {
+  background-image: url(assets/button-pressed.png);
+  padding-bottom: 3px;
+  padding-top: 8px;
+}
+
+#reroll {
+  width: 60px;
+  height: 62px;
+  border: none;
+  background: url(assets/button-reroll.png) no-repeat;
+  cursor: pointer;
+}
+
+#reroll:active {
+  background-image: url(assets/button-reroll-pressed.png);
+}
+
 #hint {
-  width: 123px;
-  height: 34px;
+  width: 60px;
+  height: 62px;
   border: none;
   background: url(assets/button-hint.png) no-repeat;
   cursor: pointer;
 }
 
-#help {
-  display: flex;
-  gap: 12px;
-  padding: 20px 16px;
+#hint:active {
+  background-image: url(assets/button-hint-pressed.png);
 }
-*/
+
+#popup_box {
+  position: relative;
+  width: 336px;
+  height: 347px;
+  background: url(assets/popup-reroll.png) no-repeat;
+}
+
+#popup_close, #popup_yes {
+  position: absolute;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#popup_close {
+  top: 27px;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+}
+
+#popup_yes {
+  top: 271px;
+  left: 26px;
+  width: 284px;
+  height: 50px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+
+#overlay.show { display: flex; }

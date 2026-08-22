@@ -10,7 +10,6 @@ const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
 
 const click_sound = new Audio( 'assets/sound-click.wav' );
-const button_sound = new Audio( 'assets/sound-button.wav' );
 
 function play( sound ) {
   sound.currentTime = 0;
@@ -18,7 +17,7 @@ function play( sound ) {
 }
 
 submit.addEventListener( 'click', () => {
-  play( button_sound );
+  play( click_sound );
 });
 
 pause.addEventListener( 'click', () => {
@@ -40,6 +39,6 @@ popup_close.addEventListener( 'click', () => {
 });
 
 popup_yes.addEventListener( 'click', () => {
-  play( button_sound );
+  play( click_sound );
   location.href = '../dice/';
 });
