@@ -94,3 +94,28 @@ function count_progress() {
 }
 
 count_progress();
+
+const frame = document.createElement( 'canvas' );
+
+setInterval( () => {
+  if ( !cam.videoWidth ) return;
+  if ( done ) return;
+
+  frame.width = cam.videoWidth;
+  frame.height = cam.videoHeight;
+
+  const draw = frame.getContext( '2d' );
+  draw.drawImage( cam, 0, 0 );
+  const pixels = draw.getImageData( 0, 0, frame.width, frame.height );
+  const result = jsQR( pixels.data, pixels.width, pixels.height );
+
+  if ( result ) {
+    console.log( 'qr:', result.data );
+    is_right = result.data === 'polaroid';
+  } else {
+    is_right = false;
+  }
+
+  guide.className = is_right ? 'right' : 'wrong';
+
+}, 500 );
