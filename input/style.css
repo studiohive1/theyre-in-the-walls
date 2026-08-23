@@ -79,20 +79,6 @@ body {
   text-align: center;
 }
 
-/*
-#back {
-  width: 62px;
-  height: 64px;
-  border: none;
-  background: url(assets/button-back.png) no-repeat;
-  cursor: pointer;
-}
-
-#back:active {
-  background-image: url(assets/button-back-pressed.png);
-}
-*/
-
 #pause {
   width: 60px;
   height: 62px;
@@ -204,3 +190,37 @@ body {
 }
 
 #overlay.show { display: flex; }
+
+#correct { display: none; }
+
+body.solved #challenge,
+body.solved #help {
+  display: none;
+}
+body.solved #correct { display: flex; }
+
+#correct {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+#yay {
+  margin: 0;
+  color: #00CC66;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 48px;
+}
+
+#next {
+  width: 189px;
+  height: 65px;
+  border: none;
+  background: url(assets/button.png) no-repeat;
+  color: #15131E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  cursor: pointer;
+}

@@ -16,7 +16,13 @@ submit.addEventListener( 'click', () => {
   if ( is_right ) {
     done = true;
     save_done();
+    document.body.classList.add( 'solved' );
   }
+});
+
+next.addEventListener( 'click', () => {
+  play( click_sound );
+  location.href = '../dice/';
 });
 
 pause.addEventListener( 'click', () => {
@@ -59,14 +65,23 @@ function save_done() {
     })
     .then( result => {
       console.log( result );
+      count_progress();
     });
 }
 
-db.from( 'progress' )
-  .select( 'challenge_id' )
-  .eq( 'user_id', test_user )
-  .eq( 'exhibit_id', 'telecomm' )
-  .eq( 'completed', true )
-  .then( result => {
-    fill_progress( result.data.length, 'input' );
-  });
+function count_progress() {
+  db.from( 'progress' )
+    .select( 'challenge_id' )
+    .eq( 'user_id', test_user )
+    .eq( 'exhibit_id', 'telecomm' )
+    .eq( 'completed', true )
+    .then( result => {
+      if ( done ) {
+        fill_progress( result.data.length );
+      } else {
+        fill_progress( result.data.length, 'input' );
+      }
+    });
+}
+
+count_progress();
