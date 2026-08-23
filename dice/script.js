@@ -4,12 +4,10 @@ const screen = 2;
 const ratio = innerWidth / innerHeight;
 const camera = new THREE.OrthographicCamera( -screen * ratio, screen * ratio, screen, -screen, 0.1, 1000 );
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setAnimationLoop( animate );
 // renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setSize( innerWidth, innerHeight, false );
-// will adjust it again after getting the dice png file
-renderer.setClearColor( 0x15131E );
 document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
