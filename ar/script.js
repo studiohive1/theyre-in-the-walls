@@ -3,7 +3,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
     cam.srcObject = stream;
   })
   .catch( err => {
-    guide.textContent = 'camera error: ' + err.name;
+    console.log( 'camera error: ' + err.name );
   });
 
 let model;
@@ -13,15 +13,15 @@ let done = false;
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
 
-guide.textContent = 'loading model...';
+console.log( 'loading model...' );
 
 tf.setBackend( 'cpu' ).then( () => {
   return tmImage.load( 'model/model.json', 'model/metadata.json' );
 }).then( m => {
   model = m;
-  guide.textContent = 'model ready';
+  console.log( 'model ready' );
 }).catch( err => {
-  guide.textContent = 'model error: ' + err.message;
+  console.log( 'model error: ' + err.message );
 });
 
 const frame = document.createElement( 'canvas' );
@@ -43,17 +43,15 @@ setInterval( () => {
     }
 
     if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
-      guide.textContent = "THAT'S IT!";
       guide.className = 'right';
       is_right = true;
     } else {
-      guide.textContent = 'KEEP LOOKING!';
       guide.className = 'wrong';
       is_right = false;
     }
 
   }).catch( err => {
-    guide.textContent = 'predict error: ' + err.message;
+    console.log( 'predict error: ' + err.message );
   });
 
 }, 2000 );
