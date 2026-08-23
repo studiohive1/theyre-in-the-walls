@@ -5,8 +5,18 @@ function play( sound ) {
   sound.play();
 }
 
+const answer = document.getElementById( 'answer' );
+let is_right = false;
+let done = false;
+
 submit.addEventListener( 'click', () => {
   play( click_sound );
+  if ( done ) return;
+  is_right = answer.value.trim().toUpperCase() === 'RUN';
+  if ( is_right ) {
+    done = true;
+    save_done();
+  }
 });
 
 pause.addEventListener( 'click', () => {
@@ -32,5 +42,31 @@ popup_yes.addEventListener( 'click', () => {
   location.href = '../dice/';
 });
 
-fill_progress( 1 );
-// temporary
+const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
+const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';
+const db = supabase.createClient( supa_api, supa_key );
+
+const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
+
+function save_done() {
+  db.from( 'progress' )
+    .insert({
+      user_id: test_user,
+      exhibit_id: 'telecomm',
+      challenge_id: 'input-1',
+      completed: true,
+      completed_at: new Date()
+    })
+    .then( result => {
+      console.log( result );
+    });
+}
+
+db.from( 'progress' )
+  .select( 'challenge_id' )
+  .eq( 'user_id', test_user )
+  .eq( 'exhibit_id', 'telecomm' )
+  .eq( 'completed', true )
+  .then( result => {
+    fill_progress( result.data.length, 'input' );
+  });
