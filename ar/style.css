@@ -61,8 +61,8 @@ body {
   background: no-repeat center / 60%;
 }
 
-#guide.right { background-image: url(assets/guide_right.png); }
-#guide.wrong { background-image: url(assets/guide_wrong.png); }
+#guide.right { background-image: url(assets/guide-right.png); }
+#guide.wrong { background-image: url(assets/guide-wrong.png); }
 
 #pause {
   width: 60px;

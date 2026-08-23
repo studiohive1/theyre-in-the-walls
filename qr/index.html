@@ -23,22 +23,25 @@
     <button id="pause"></button>
   </header>
 
-  <div id="challenge">
+  <div id="challenge" class="playing">
     <p id="question">
       Bert was looking into the first instant developing camera. What is it?
     </p>
     <img id="henry" src="assets/henry.gif" alt="">
   </div>
 
-  <div id="view">
+  <div id="view" class="playing">
     <video id="cam" autoplay muted playsinline></video>
-    <p id="guide"></p>
+      <div id="guide"></div>
   </div>
-  <footer id="help">
+  <footer id="help" class="playing">
     <button id="hint"></button>
     <button id="submit">SUBMIT</button>
   </footer>
-  
+  <div id="correct">
+    <p id="yay">CORRECT!!!!</p>
+    <button id="next">NEXT</button>
+  </div>
   <div id="overlay">
     <div id="popup_box">
       <button id="popup_close"></button>
