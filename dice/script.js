@@ -255,10 +255,12 @@ const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
 // testing with my user id for now!
 
 db.from( 'progress' )
-  .select()
+  .select( '*', { count: 'exact', head: true } )
   .eq( 'user_id', test_user )
+  .eq( 'exhibit_id', 'telecomm' )
+  .eq( 'completed', true )
   .then( result => {
-    console.log( result );
+    fill_progress( result.count );
   });
 
 const count = document.getElementById( 'count' );
