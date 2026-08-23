@@ -19,4 +19,7 @@
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.hex.done { background: #00CC66; }
+.hex.done  { background: #00CC66; }
+.hex.qr    { background: #30C5FF; }
+.hex.input { background: #EB6F00; }
+.hex.ar    { background: #C96EBD; }
