@@ -7,6 +7,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
   });
 
 let model;
+let is_right = false;
 
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
@@ -41,11 +42,13 @@ setInterval( () => {
     }
 
     if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
-      guide.textContent = "THAT'S RIGHT!";
+      guide.textContent = "THAT'S IT!";
       guide.className = 'right';
+      is_right = true;
     } else {
-      guide.textContent = 'hmm... not here! keep looking!';
+      guide.textContent = 'KEEP LOOKING!';
       guide.className = 'wrong';
+      is_right = false;
     }
 
   }).catch( err => {
@@ -63,6 +66,9 @@ function play( sound ) {
 
 submit.addEventListener( 'click', () => {
   play( click_sound );
+  if ( is_right ) {
+    save_done();
+  }
 });
 
 pause.addEventListener( 'click', () => {
@@ -88,5 +94,23 @@ popup_yes.addEventListener( 'click', () => {
   location.href = '../dice/';
 });
 
-fill_progress( 1 );
-// temporary
+const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
+const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';
+const db = supabase.createClient( supa_api, supa_key );
+
+const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
+// testing with my user id for now!
+
+function save_done() {
+  db.from( 'progress' )
+    .insert({
+      user_id: test_user,
+      exhibit_id: 'telecomm',
+      challenge_id: 'ar-1',
+      completed: true,
+      completed_at: new Date()
+    })
+    .then( result => {
+      console.log( result );
+    });
+}
