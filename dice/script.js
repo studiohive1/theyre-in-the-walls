@@ -19,6 +19,13 @@ function face( name ) {
   return new THREE.MeshStandardMaterial({ map: pic });
 }
 
+function unlock( face_num, type_name ) {
+  const pic = loader.load( 'assets/cube-face-' + type_name + '-v4-unlocked.png' );
+  pic.magFilter = THREE.NearestFilter;
+  material[ face_num ].map = pic;
+  material[ face_num ].needsUpdate = true;
+}
+
 const material = [
   face( 'qr' ),    // right
   face( 'qr' ),    // left
@@ -205,12 +212,12 @@ action_btn.addEventListener( 'click', () => {
 });
 
 const types = [
-  { name: 'qr',    dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' }, // right
-  { name: 'qr',    dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' }, // left
-  { name: 'input', dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },  // top
-  { name: 'input', dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },  // bottom
-  { name: 'ar',    dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' }, // front
-  { name: 'ar',    dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }  // back
+  { id: 'qr-1',    name: 'qr',    dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' }, // right
+  { id: 'qr-2',    name: 'qr',    dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' }, // left
+  { id: 'input-1', name: 'input', dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },  // top
+  { id: 'input-2', name: 'input', dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },  // bottom
+  { id: 'ar-1',    name: 'ar',    dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' }, // front
+  { id: 'ar-2',    name: 'ar',    dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }  // back
 ];
 
 const up = new THREE.Vector3( 0, 1, 0 );
@@ -253,10 +260,18 @@ const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
 // testing with my user id for now!
 
 db.from( 'progress' )
-  .select( '*', { count: 'exact', head: true } )
+  .select( 'challenge_id' )
   .eq( 'user_id', test_user )
   .eq( 'exhibit_id', 'telecomm' )
   .eq( 'completed', true )
   .then( result => {
-    fill_progress( result.count );
+    fill_progress( result.data.length );
+
+    for ( const row of result.data ) {
+      for ( let i = 0; i < types.length; i++ ) {
+        if ( types[i].id === row.challenge_id ) {
+          unlock( i, types[i].name );
+        }
+      }
+    }
   });
