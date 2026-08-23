@@ -78,7 +78,8 @@ function wrong() {
 }
 
 function move() {
-  location.href = '../' + get_challenge().name + '/';
+  const pick = get_challenge();
+  if ( pick ) location.href = '../' + pick.name + '/';
 }
 
 const light = new THREE.DirectionalLight( 0xffffff, 0.8 );
@@ -133,12 +134,14 @@ function animate( time ) {
     }
 
     if ( rolled && stopped && jump === 0 && !done ) {
-      done = true;
-      card.textContent = get_challenge().label;
-      card.className = 'show ' + get_challenge().name;
-      action_btn.textContent = 'CHALLENGE ACCEPTED!';
+      const pick = get_challenge();
+      if ( pick ) {
+        done = true;
+        card.textContent = pick.label;
+        card.className = 'show ' + pick.name;
+        action_btn.textContent = 'CHALLENGE ACCEPTED!';
+      }
     }
-
   }
 
   if ( time - stamp > 1000 / 12 ) {
@@ -212,20 +215,21 @@ action_btn.addEventListener( 'click', () => {
 });
 
 const types = [
-  { id: 'qr-1',    name: 'qr',    dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' }, // right
-  { id: 'qr-2',    name: 'qr',    dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' }, // left
-  { id: 'input-1', name: 'input', dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },  // top
-  { id: 'input-2', name: 'input', dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },  // bottom
-  { id: 'ar-1',    name: 'ar',    dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' }, // front
-  { id: 'ar-2',    name: 'ar',    dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }  // back
+  { id: 'qr-1',    name: 'qr',    solved: false, dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' },
+  { id: 'qr-2',    name: 'qr',    solved: false, dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' },
+  { id: 'input-1', name: 'input', solved: false, dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },
+  { id: 'input-2', name: 'input', solved: false, dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },
+  { id: 'ar-1',    name: 'ar',    solved: false, dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' },
+  { id: 'ar-2',    name: 'ar',    solved: false, dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }
 ];
 
 const up = new THREE.Vector3( 0, 1, 0 );
 
 function get_challenge() {
-  let chosen = types[0];
+  let chosen = null;
   let highest = -2;
   for ( const type of types ) {
+    if ( type.solved ) continue;
     const point = type.dir.clone().applyQuaternion( cube.quaternion ).dot( up );
     if ( point > highest ) {
       highest = point;
@@ -271,7 +275,8 @@ db.from( 'progress' )
       for ( let i = 0; i < types.length; i++ ) {
         if ( types[i].id === row.challenge_id ) {
           unlock( i, types[i].name );
+          types[i].solved = true;
         }
       }
     }
-  });
+});
