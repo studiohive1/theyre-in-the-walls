@@ -93,6 +93,8 @@ let shake = 0;
 let done = false;
 const card = document.getElementById( 'card' );
 let rolled = false;
+let stop_x = 0;
+let stop_y = 0;
 
 function animate( time ) {
 
@@ -126,11 +128,23 @@ function animate( time ) {
     // 0.96 or 0.97 seems fine for now, might adjust later!
 
     if ( Math.abs( roll_x ) + Math.abs( roll_y ) < 0.04 ) {
-      // console.log( 'stopped' );
-      const quarter = Math.PI / 2;
-      cube.rotation.x += ( Math.round( cube.rotation.x / quarter ) * quarter - cube.rotation.x ) * 0.15;
-      cube.rotation.y += ( Math.round( cube.rotation.y / quarter ) * quarter - cube.rotation.y ) * 0.15;
-      stopped = true;
+      if ( !stopped ) {
+        stopped = true;
+        roll_x = 0;
+        roll_y = 0;
+        let goal = on_top();
+        if ( goal.solved ) {
+          const not_done = types.filter( type => !type.solved );
+          if ( not_done.length > 0 ) {
+            goal = not_done[ Math.floor( Math.random() * not_done.length ) ];
+          }
+        }
+        stop_x = close( cube.rotation.x, goal.set_x * Math.PI / 2 );
+        stop_y = close( cube.rotation.y, goal.set_y * Math.PI / 2 );
+      }
+      cube.rotation.x += ( stop_x - cube.rotation.x ) * 0.12;
+      cube.rotation.y += ( stop_y - cube.rotation.y ) * 0.12;
+      // will adjust the speed later!
     }
 
     if ( rolled && stopped && jump === 0 && !done ) {
@@ -215,12 +229,12 @@ action_btn.addEventListener( 'click', () => {
 });
 
 const types = [
-  { id: 'qr-1',    name: 'qr',    solved: false, dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' },
-  { id: 'qr-2',    name: 'qr',    solved: false, dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' },
-  { id: 'input-1', name: 'input', solved: false, dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },
-  { id: 'input-2', name: 'input', solved: false, dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },
-  { id: 'ar-1',    name: 'ar',    solved: false, dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' },
-  { id: 'ar-2',    name: 'ar',    solved: false, dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }
+  { id: 'qr-1',    name: 'qr',    solved: false, set_x: 1, set_y: 1, dir: new THREE.Vector3( 1, 0, 0 ),  label: 'HIDDEN CODES' },
+  { id: 'qr-2',    name: 'qr',    solved: false, set_x: 1, set_y: 3, dir: new THREE.Vector3( -1, 0, 0 ), label: 'HIDDEN CODES' },
+  { id: 'input-1', name: 'input', solved: false, set_x: 0, set_y: 0, dir: new THREE.Vector3( 0, 1, 0 ),  label: 'INPUT BASED' },
+  { id: 'input-2', name: 'input', solved: false, set_x: 2, set_y: 0, dir: new THREE.Vector3( 0, -1, 0 ), label: 'INPUT BASED' },
+  { id: 'ar-1',    name: 'ar',    solved: false, set_x: 1, set_y: 2, dir: new THREE.Vector3( 0, 0, 1 ),  label: 'TAKE A PHOTO' },
+  { id: 'ar-2',    name: 'ar',    solved: false, set_x: 1, set_y: 0, dir: new THREE.Vector3( 0, 0, -1 ), label: 'TAKE A PHOTO' }
 ];
 
 const up = new THREE.Vector3( 0, 1, 0 );
@@ -230,6 +244,24 @@ function get_challenge() {
   let highest = -2;
   for ( const type of types ) {
     if ( type.solved ) continue;
+    const point = type.dir.clone().applyQuaternion( cube.quaternion ).dot( up );
+    if ( point > highest ) {
+      highest = point;
+      chosen = type;
+    }
+  }
+  return chosen;
+}
+
+function close( now, want ) {
+  const full = Math.PI * 2;
+  return want + Math.round( ( now - want ) / full ) * full;
+}
+
+function on_top() {
+  let chosen = types[0];
+  let highest = -2;
+  for ( const type of types ) {
     const point = type.dir.clone().applyQuaternion( cube.quaternion ).dot( up );
     if ( point > highest ) {
       highest = point;
