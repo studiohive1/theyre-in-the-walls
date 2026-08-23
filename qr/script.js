@@ -42,3 +42,6 @@ popup_yes.addEventListener( 'click', () => {
   play( click_sound );
   location.href = '../dice/';
 });
+
+fill_progress( 1 );
+// temporary

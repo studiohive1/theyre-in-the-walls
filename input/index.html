@@ -8,13 +8,18 @@
   <!-- quokka -->
   <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
   <!-- jersey 25 -->
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../script.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <header id="bar">
     <button id="reroll"></button>
-    <div id="progress"></div>
+    <div id="progress">
+      <span id="count">0/6</span>
+    </div>
     <button id="pause"></button>
   </header>
 
