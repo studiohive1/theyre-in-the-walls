@@ -96,6 +96,7 @@ function count_progress() {
 count_progress();
 
 const frame = document.createElement( 'canvas' );
+let ok_time = 0;
 
 setInterval( () => {
   if ( !cam.videoWidth ) return;
@@ -111,11 +112,10 @@ setInterval( () => {
 
   if ( result ) {
     console.log( 'qr:', result.data );
-    is_right = result.data === 'polaroid';
-  } else {
-    is_right = false;
+    if ( result.data === 'polaroid' ) ok_time = Date.now();
   }
 
+  is_right = Date.now() - ok_time < 3000;
   guide.className = is_right ? 'right' : 'wrong';
 
 }, 500 );

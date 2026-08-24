@@ -9,6 +9,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
 let model;
 let is_right = false;
 let done = false;
+let ok_time = 0;
 
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
@@ -43,12 +44,11 @@ setInterval( () => {
     }
 
     if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
-      guide.className = 'right';
-      is_right = true;
-    } else {
-      guide.className = 'wrong';
-      is_right = false;
+      ok_time = Date.now();
     }
+
+    is_right = Date.now() - ok_time < 3000;
+    guide.className = is_right ? 'right' : 'wrong';
 
   }).catch( err => {
     console.log( 'predict error: ' + err.message );
