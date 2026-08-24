@@ -107,6 +107,7 @@ function save_done( given ) {
       user_id: test_user,
       exhibit_id: 'telecomm',
       challenge_id: chal_id,
+      type: 'input',
       completed: true,
       completed_at: new Date(),
       given_answer: given
@@ -123,6 +124,7 @@ function save_try( given ) {
       user_id: test_user,
       exhibit_id: 'telecomm',
       challenge_id: chal_id,
+      type: 'input',
       completed: false,
       given_answer: given
     })

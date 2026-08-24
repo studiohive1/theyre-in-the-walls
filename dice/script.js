@@ -302,7 +302,7 @@ const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
 // testing with my user id for now!
 
 db.from( 'progress' )
-  .select( 'challenge_id' )
+  .select( 'type' )
   .eq( 'user_id', test_user )
   .eq( 'exhibit_id', 'telecomm' )
   .eq( 'completed', true )
@@ -311,9 +311,10 @@ db.from( 'progress' )
 
     for ( const row of result.data ) {
       for ( let i = 0; i < types.length; i++ ) {
-        if ( types[i].id === row.challenge_id ) {
+        if ( types[i].name === row.type && !types[i].solved ) {
           unlock( i, types[i].name );
           types[i].solved = true;
+          break;
         }
       }
     }
