@@ -97,6 +97,7 @@ count_progress();
 
 const frame = document.createElement( 'canvas' );
 let ok_time = 0;
+let last_seen = '';
 
 setInterval( () => {
   if ( !cam.videoWidth ) return;
@@ -112,7 +113,10 @@ setInterval( () => {
 
   if ( result ) {
     console.log( 'qr:', result.data );
+    last_seen = result.data;
     if ( result.data === 'polaroid' ) ok_time = Date.now();
+  } else {
+    last_seen = '';
   }
 
   is_right = Date.now() - ok_time < 3000;

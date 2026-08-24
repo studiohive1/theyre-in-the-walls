@@ -10,6 +10,7 @@ let model;
 let is_right = false;
 let done = false;
 let ok_time = 0;
+let last_seen = '';
 
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
@@ -46,6 +47,7 @@ setInterval( () => {
     if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
       ok_time = Date.now();
     }
+    last_seen = chosen.className;
 
     is_right = Date.now() - ok_time < 3000;
     guide.className = is_right ? 'right' : 'wrong';
@@ -68,8 +70,10 @@ submit.addEventListener( 'click', () => {
   if ( done ) return;
   if ( is_right ) {
     done = true;
-    save_done();
+    save_done( last_seen );
     document.body.classList.add( 'solved' );
+  } else {
+    save_try( last_seen );
   }
 });
 
@@ -108,18 +112,33 @@ const db = supabase.createClient( supa_api, supa_key );
 const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
 // testing with my user id for now!
 
-function save_done() {
+function save_done( given ) {
   db.from( 'progress' )
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
       challenge_id: 'ar-1',
       completed: true,
-      completed_at: new Date()
+      completed_at: new Date(),
+      given_answer: given
     })
     .then( result => {
       console.log( result );
       count_progress();
+    });
+}
+
+function save_try( given ) {
+  db.from( 'progress' )
+    .insert({
+      user_id: test_user,
+      exhibit_id: 'telecomm',
+      challenge_id: 'ar-1',
+      completed: false,
+      given_answer: given
+    })
+    .then( result => {
+      console.log( result );
     });
 }
 
