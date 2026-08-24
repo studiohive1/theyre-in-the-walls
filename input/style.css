@@ -237,3 +237,18 @@ body.solved #correct { display: flex; }
 }
 
 #oops.show { display: block; }
+
+#code .wrong_word { color: #F15946; }
+
+#code {
+  padding: 16px;
+  background: #E1DFDF;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}

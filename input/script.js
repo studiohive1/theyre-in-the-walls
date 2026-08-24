@@ -29,6 +29,12 @@ function draw_code( text ) {
   }
 }
 
+function draw_words( text ) {
+  code.innerHTML = text
+    .replace( '[', '<span class="wrong_word">' )
+    .replace( ']', '</span>' );
+}
+
 const answer = document.getElementById( 'answer' );
 let is_right = false;
 let done = false;
@@ -137,13 +143,20 @@ count_progress();
 
 function get_question() {
   db.from( 'challenges' )
-    .select( 'question, body, answer' )
-    .eq( 'challenge_id', 'input-1' )
-    .single()
+    .select( 'question, body, answer, challenge_id' )
+    .eq( 'type', 'input' )
     .then( result => {
-      question.textContent = result.data.question;
-      draw_code( result.data.body );
-      right_answer = result.data.answer;
+      const list = result.data;
+      const one = list[ Math.floor( Math.random() * list.length ) ];
+
+      question.textContent = one.question;
+      if ( one.challenge_id === 'morse' ) {
+        draw_code( one.body );
+      }
+      if ( one.challenge_id === 'incorrect_word' ) {
+        draw_words( one.body );
+      }
+      right_answer = one.answer;
     });
 }
 
