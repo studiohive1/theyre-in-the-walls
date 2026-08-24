@@ -39,6 +39,7 @@ const answer = document.getElementById( 'answer' );
 let is_right = false;
 let done = false;
 let right_answer = '';
+let chal_id = '';
 
 submit.addEventListener( 'click', () => {
   play( click_sound );
@@ -99,7 +100,7 @@ function save_done( given ) {
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
-      challenge_id: 'input-1',
+      challenge_id: chal_id,
       completed: true,
       completed_at: new Date(),
       given_answer: given
@@ -115,7 +116,7 @@ function save_try( given ) {
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
-      challenge_id: 'input-1',
+      challenge_id: chal_id,
       completed: false,
       given_answer: given
     })
@@ -157,6 +158,7 @@ function get_question() {
         draw_words( one.body );
       }
       right_answer = one.answer;
+      chal_id = one.challenge_id;
     });
 }
 
