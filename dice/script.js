@@ -95,6 +95,7 @@ const card = document.getElementById( 'card' );
 let rolled = false;
 let stop_x = 0;
 let stop_y = 0;
+let landed = false;
 
 function animate( time ) {
 
@@ -127,9 +128,10 @@ function animate( time ) {
     roll_y *= 0.96;
     // 0.96 or 0.97 seems fine for now, might adjust later!
 
-    if ( Math.abs( roll_x ) + Math.abs( roll_y ) < 0.04 ) {
+    if ( Math.abs( roll_x ) + Math.abs( roll_y ) < 0.02 ) {
       if ( !stopped ) {
         stopped = true;
+        landed = false;
         roll_x = 0;
         roll_y = 0;
         let goal = on_top();
@@ -142,12 +144,14 @@ function animate( time ) {
         stop_x = close( cube.rotation.x, goal.set_x * Math.PI / 2 );
         stop_y = close( cube.rotation.y, goal.set_y * Math.PI / 2 );
       }
-      cube.rotation.x += ( stop_x - cube.rotation.x ) * 0.12;
-      cube.rotation.y += ( stop_y - cube.rotation.y ) * 0.12;
-      // will adjust the speed later!
+      cube.rotation.x += ( stop_x - cube.rotation.x ) * 0.05;
+      cube.rotation.y += ( stop_y - cube.rotation.y ) * 0.05;
+
+      const gap = Math.abs( stop_x - cube.rotation.x ) + Math.abs( stop_y - cube.rotation.y );
+      if ( gap < 0.01 ) landed = true;
     }
 
-    if ( rolled && stopped && jump === 0 && !done ) {
+    if ( rolled && stopped && landed && jump === 0 && !done ) {
       const pick = get_challenge();
       if ( pick ) {
         done = true;
@@ -180,6 +184,7 @@ addEventListener( 'pointerdown', e => {
 
 addEventListener( 'pointerup', () => {
   moving = false;
+  stopped = false;
   const speed = Math.abs( roll_x ) + Math.abs( roll_y );
   jump = Math.min( speed * 1.5, 0.15 );
   // 1.5 and 0.15 feel good on a laptop for now, but need to be tested on mobile!
@@ -222,6 +227,7 @@ action_btn.addEventListener( 'click', () => {
     move();
     return;
   }
+  stopped = false;
   roll_x = limit( ( Math.random() - 0.5 ) * 0.5 );
   roll_y = limit( ( Math.random() - 0.5 ) * 0.5 );
   jump = 0.1 + Math.random() * 0.05;
