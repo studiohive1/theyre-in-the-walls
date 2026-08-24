@@ -70,10 +70,6 @@ pause.addEventListener( 'click', () => {
   play( click_sound );
 });
 
-hint.addEventListener( 'click', () => {
-  play( click_sound );
-});
-
 reroll.addEventListener( 'click', () => {
   play( click_sound );
   overlay.className = 'show';
@@ -87,6 +83,16 @@ popup_close.addEventListener( 'click', () => {
 popup_yes.addEventListener( 'click', () => {
   play( click_sound );
   location.href = '../dice/';
+});
+
+hint.addEventListener( 'click', () => {
+  play( click_sound );
+  hint_box.className = 'show';
+});
+
+hint_box.addEventListener( 'click', () => {
+  play( click_sound );
+  hint_box.className = '';
 });
 
 const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
@@ -144,11 +150,14 @@ count_progress();
 
 function get_question() {
   db.from( 'challenges' )
-    .select( 'question, body, answer, challenge_id' )
+    .select( 'question, body, answer, challenge_id, hint, hint_url' )
     .eq( 'type', 'input' )
     .then( result => {
       const list = result.data;
       const one = list[ Math.floor( Math.random() * list.length ) ];
+      
+      hint_msg.textContent = one.hint;
+      hint_img.src = one.hint_url;
 
       question.textContent = one.question;
       if ( one.challenge_id === 'morse' ) {
