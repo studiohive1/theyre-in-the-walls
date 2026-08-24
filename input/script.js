@@ -5,15 +5,40 @@ function play( sound ) {
   sound.play();
 }
 
+const code = document.getElementById( 'code' );
+
+const colours = {
+  Y: 'yellow',
+  G: 'green',
+  R: 'red'
+};
+
+function draw_code( text ) {
+  code.innerHTML = '';
+  for ( const letter of text ) {
+    if ( letter === '/' ) {
+      const line = document.createElement( 'span' );
+      line.className = 'slash';
+      line.textContent = '/';
+      code.appendChild( line );
+    } else {
+      const dot = document.createElement( 'span' );
+      dot.className = 'dot ' + colours[ letter ];
+      code.appendChild( dot );
+    }
+  }
+}
+
 const answer = document.getElementById( 'answer' );
 let is_right = false;
 let done = false;
+let right_answer = '';
 
 submit.addEventListener( 'click', () => {
   play( click_sound );
   if ( done ) return;
   const typed = answer.value.trim().toUpperCase();
-  is_right = typed === 'RUN';
+  is_right = typed === right_answer.toUpperCase();
   if ( is_right ) {
     done = true;
     save_done( typed );
@@ -109,3 +134,17 @@ function count_progress() {
 }
 
 count_progress();
+
+function get_question() {
+  db.from( 'challenges' )
+    .select( 'question, body, answer' )
+    .eq( 'challenge_id', 'input-1' )
+    .single()
+    .then( result => {
+      question.textContent = result.data.question;
+      draw_code( result.data.body );
+      right_answer = result.data.answer;
+    });
+}
+
+get_question();
