@@ -224,3 +224,16 @@ body.solved #correct { display: flex; }
   font-size: 24px;
   cursor: pointer;
 }
+
+#oops {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6) url(assets/popup_oops.png) no-repeat center / 200px 76px;
+  image-rendering: pixelated;
+  display: none;
+}
+
+#oops.show { display: block; }

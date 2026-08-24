@@ -12,12 +12,21 @@ let done = false;
 submit.addEventListener( 'click', () => {
   play( click_sound );
   if ( done ) return;
-  is_right = answer.value.trim().toUpperCase() === 'RUN';
+  const typed = answer.value.trim().toUpperCase();
+  is_right = typed === 'RUN';
   if ( is_right ) {
     done = true;
-    save_done();
+    save_done( typed );
     document.body.classList.add( 'solved' );
+  } else {
+    save_try( typed );
+    oops.className = 'show';
   }
+});
+
+oops.addEventListener( 'click', () => {
+  play( click_sound );
+  oops.className = '';
 });
 
 next.addEventListener( 'click', () => {
@@ -54,18 +63,33 @@ const db = supabase.createClient( supa_api, supa_key );
 
 const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
 
-function save_done() {
+function save_done( given ) {
   db.from( 'progress' )
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
       challenge_id: 'input-1',
       completed: true,
-      completed_at: new Date()
+      completed_at: new Date(),
+      given_answer: given
     })
     .then( result => {
       console.log( result );
       count_progress();
+    });
+}
+
+function save_try( given ) {
+  db.from( 'progress' )
+    .insert({
+      user_id: test_user,
+      exhibit_id: 'telecomm',
+      challenge_id: 'input-1',
+      completed: false,
+      given_answer: given
+    })
+    .then( result => {
+      console.log( result );
     });
 }
 
