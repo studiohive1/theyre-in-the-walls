@@ -29,15 +29,6 @@ body {
   gap: 12px;
 }
 
-#code {
-  padding: 16px;
-  background: #E1DFDF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
 .dot {
   width: 18px;
   height: 18px;
