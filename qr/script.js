@@ -69,6 +69,7 @@ function save_done() {
       user_id: test_user,
       exhibit_id: 'telecomm',
       challenge_id: 'qr-1',
+      type: 'qr',
       completed: true,
       completed_at: new Date()
     })
