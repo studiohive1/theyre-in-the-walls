@@ -11,6 +11,8 @@ let is_right = false;
 let done = false;
 let ok_time = 0;
 let last_seen = '';
+let right_answer = '';
+let chal_id = '';
 
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
@@ -44,7 +46,7 @@ setInterval( () => {
       }
     }
 
-    if ( chosen.className === 'Telecomm' && chosen.probability > 0.8 ) {
+    if ( chosen.className === right_answer && chosen.probability > 0.8 ) {
       ok_time = Date.now();
     }
     last_seen = chosen.className;
@@ -88,6 +90,12 @@ pause.addEventListener( 'click', () => {
 
 hint.addEventListener( 'click', () => {
   play( click_sound );
+  hint_box.className = 'show';
+});
+
+hint_box.addEventListener( 'click', () => {
+  play( click_sound );
+  hint_box.className = '';
 });
 
 reroll.addEventListener( 'click', () => {
@@ -117,7 +125,7 @@ function save_done( given ) {
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
-      challenge_id: 'ar-1',
+      challenge_id: chal_id,
       type: 'ar',
       completed: true,
       completed_at: new Date(),
@@ -134,7 +142,7 @@ function save_try( given ) {
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
-      challenge_id: 'ar-1',
+      challenge_id: chal_id,
       type: 'ar',
       completed: false,
       given_answer: given
@@ -160,3 +168,21 @@ function count_progress() {
 }
 
 count_progress();
+
+function get_question() {
+  db.from( 'challenges' )
+    .select( 'question, answer, challenge_id, hint, hint_url' )
+    .eq( 'type', 'ar' )
+    .then( result => {
+      const list = result.data;
+      const one = list[ Math.floor( Math.random() * list.length ) ];
+
+      question.textContent = one.question;
+      right_answer = one.answer;
+      chal_id = one.challenge_id;
+      hint_msg.textContent = one.hint;
+      hint_img.src = one.hint_url;
+    });
+}
+
+get_question();
