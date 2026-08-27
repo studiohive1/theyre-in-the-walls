@@ -77,6 +77,10 @@ body {
 .step.on { display: flex; }
 
 .henry {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translateX( -50% );
   width: 192px;
   height: 192px;
   background: url(assets/intro-p1.png) 0 0;
@@ -92,6 +96,11 @@ body {
   animation: put_down 1.169s steps(7) 1,
   wave 0.835s steps(5) infinite 1.169s;
   background-position: -960px 0;
+}
+
+.wave_only {
+  animation: wave 0.835s steps(5) infinite;
+  background-position: -2304px 0;
 }
 
 @keyframes walk {
@@ -138,4 +147,60 @@ body {
   font-size: 24px;
   line-height: 1.3;
   box-sizing: border-box;
+}
+
+.label {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  color: #F9C22E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  text-align: center;
+}
+
+#name_box {
+  position: absolute;
+  top: 64%;
+  left: 16px;
+  right: 16px;
+  box-sizing: border-box;
+  height: 50px;
+  background: none;
+  border-style: solid;
+  border-width: 12px;
+  border-image-source: url(assets/answer-box.png);
+  border-image-slice: 12 fill;
+  image-rendering: pixelated;
+  padding: 0 8px;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  text-align: center;
+}
+
+#thats_me {
+  position: absolute;
+  top: 71%;
+  left: 50%;
+  transform: translateX( -50% );
+  box-sizing: border-box;
+  width: 189px;
+  height: 65px;
+  padding-bottom: 11px;
+  border: none;
+  background: url(assets/button.png) no-repeat;
+  color: #15131E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 31px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#thats_me:active {
+  background-image: url(assets/button-pressed.png);
+  padding-bottom: 3px;
+  padding-top: 8px;
 }

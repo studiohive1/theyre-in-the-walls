@@ -1,4 +1,9 @@
 const click_sound = new Audio( 'assets/sound-click.wav' );
+const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
+const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';
+const db = supabase.createClient( supa_api, supa_key );
+
+const card_guid = new URLSearchParams( location.search ).get( 'card' );
 
 function play( sound ) {
   sound.currentTime = 0;
@@ -34,4 +39,24 @@ back.addEventListener( 'click', e => {
 pause.addEventListener( 'click', e => {
   e.stopPropagation();
   play( click_sound );
+});
+
+let user_id = '';
+
+thats_me.addEventListener( 'click', () => {
+  play( click_sound );
+  const typed = name_box.value.trim();
+  if ( typed === '' ) return;
+
+  db.from( 'users' )
+    .insert({ username: typed })
+    .select()
+    .single()
+    .then( result => {
+      user_id = result.data.id;
+      return db.from( 'nfc_cards' ).insert({ guid: card_guid, user_id: user_id });
+    })
+    .then( () => {
+      go_next();
+    });
 });

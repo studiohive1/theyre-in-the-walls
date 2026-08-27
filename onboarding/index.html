@@ -10,6 +10,7 @@
   <!-- jersey 25 -->
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../script.js" defer></script>
   <script src="script.js" defer></script>
 </head>
@@ -30,7 +31,12 @@
     <p class="textbox">Hi there!<br>I'm Henry, and your name is?</p>
     <div class="henry wave"></div>
   </div>
-  <div class="step" id="p3"></div>
+  <div class="step" id="p3">
+    <div class="henry wave_only"></div>
+    <p class="label">enter your name</p>
+    <input id="name_box" placeholder="type your name">
+    <button id="thats_me">THAT'S ME!</button>
+  </div>
   <div class="step" id="p4"></div>
 </body>
 </html>
