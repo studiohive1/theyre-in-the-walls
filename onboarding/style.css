@@ -5,7 +5,7 @@ body {
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  background: #15131E;
+  background: #12263A;
   overflow: hidden;
 }
 
@@ -70,6 +70,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 94px;
   z-index: 2;
 }
 
@@ -80,12 +81,31 @@ body {
   height: 192px;
   background: url(assets/intro-p1.png) 0 0;
   background-size: 3648px 192px;
-  animation: walk 0.835s steps(5) infinite;
   image-rendering: pixelated;
+}
+
+.walk {
+  animation: walk 0.835s steps(5) infinite;
+}
+
+.wave {
+  animation: put_down 1.169s steps(7) 1,
+  wave 0.835s steps(5) infinite 1.169s;
+  background-position: -960px 0;
 }
 
 @keyframes walk {
   to { background-position: -960px 0; }
+}
+
+@keyframes put_down {
+  from { background-position: -960px 0; }
+  to   { background-position: -2304px 0; }
+}
+
+@keyframes wave {
+  from { background-position: -2304px 0; }
+  to   { background-position: -3264px 0; }
 }
 
 .tap {
@@ -99,4 +119,23 @@ body {
   font-size: 24px;
   text-align: center;
   z-index: 2;
+}
+
+.textbox {
+  position: absolute;
+  top: 94px;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  padding: 20px 24px;
+  border-style: solid;
+  border-width: 8px;
+  border-image-source: url(assets/dialogue-textbox.png);
+  border-image-slice: 8 fill;
+  image-rendering: pixelated;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  line-height: 1.3;
+  box-sizing: border-box;
 }
