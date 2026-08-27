@@ -57,14 +57,22 @@ let chal_id = '';
 submit.addEventListener( 'click', () => {
   play( click_sound );
   if ( done ) return;
-  const typed = answer.value.trim().toUpperCase();
-  is_right = typed === right_answer.toUpperCase();
+
+  let given = '';
+  if ( chal_id === 'multiple_choice' ) {
+    given = picked;
+    is_right = given === right_answer;
+  } else {
+    given = answer.value.trim().toUpperCase();
+    is_right = given === right_answer.toUpperCase();
+  }
+
   if ( is_right ) {
     done = true;
-    save_done( typed );
+    save_done( given );
     document.body.classList.add( 'solved' );
   } else {
-    save_try( typed );
+    save_try( given );
     oops.className = 'show';
   }
 });
@@ -190,3 +198,16 @@ function get_question() {
 }
 
 get_question();
+
+let picked = 0;
+
+for ( const box of document.querySelectorAll( '.pick' ) ) {
+  box.addEventListener( 'click', () => {
+    play( click_sound );
+    for ( const other of document.querySelectorAll( '.pick' ) ) {
+      other.classList.remove( 'on' );
+    }
+    box.classList.add( 'on' );
+    picked = box.dataset.num;
+  });
+}
