@@ -27,7 +27,7 @@ submit.addEventListener( 'click', () => {
     save_done();
     document.body.classList.add( 'solved' );
   } else {
-    save_try( last_seen );
+    save_try();
   }
 });
 
@@ -79,7 +79,8 @@ function save_done() {
       challenge_id: chal_id,
       type: 'qr',
       completed: true,
-      completed_at: new Date()
+      completed_at: new Date(),
+      given_answer: last_seen
     })
     .then( result => {
       console.log( result );
@@ -87,14 +88,14 @@ function save_done() {
     });
 }
 
-function save_try( given ) {
+function save_try() {
   db.from( 'progress' )
     .insert({
       user_id: test_user,
       exhibit_id: 'telecomm',
       challenge_id: chal_id,
       type: 'qr',
-      completed_at: new Date(),
+      completed: false,
       given_answer: last_seen
     })
     .then( result => {
