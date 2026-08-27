@@ -291,3 +291,17 @@ body.solved #correct { display: flex; }
   font-size: 24px;
   text-align: center;
 }
+
+#choices {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#choices img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}

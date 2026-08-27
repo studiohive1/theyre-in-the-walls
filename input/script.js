@@ -29,10 +29,23 @@ function draw_code( text ) {
   }
 }
 
-function draw_words( text ) {
-  code.innerHTML = text
-    .replace( '[', '<span class="wrong_word">' )
+function mark( text ) {
+  return text
+    .replace( '[', '<span class="highlight">' )
     .replace( ']', '</span>' );
+}
+
+function draw_words( text ) {
+  code.innerHTML = mark( text );
+}
+
+function draw_choices( text ) {
+  const urls = text.trim().split( '\n' );
+  choice_1.src = urls[0];
+  choice_2.src = urls[1];
+  choices.style.display = 'flex';
+  code.style.display = 'none';
+  answer.style.display = 'none';
 }
 
 const answer = document.getElementById( 'answer' );
@@ -161,12 +174,15 @@ function get_question() {
       hint_msg.textContent = one.hint;
       hint_img.src = one.hint_url;
 
-      question.textContent = one.question;
+      question.innerHTML = mark( one.question );
       if ( one.challenge_id === 'morse' ) {
         draw_code( one.body );
       }
       if ( one.challenge_id === 'incorrect_word' ) {
         draw_words( one.body );
+      }
+      if ( one.challenge_id === 'multiple_choice' ) {
+        draw_choices( one.body );
       }
       right_answer = one.answer;
       chal_id = one.challenge_id;
