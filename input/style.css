@@ -229,7 +229,7 @@ body.solved #correct { display: flex; }
 
 #oops.show { display: block; }
 
-#code .wrong_word { color: #F15946; }
+.highlight { color: #F15946; }
 
 #code {
   padding: 16px;
