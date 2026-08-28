@@ -326,3 +326,42 @@ body {
   width: 65%;
   image-rendering: pixelated;
 }
+
+.raise {
+  background-image: url(assets/intro-p3.png);
+  background-size: 2688px 192px;
+  animation: raise 2.338s steps(14) 1 forwards;
+}
+
+@keyframes raise {
+  from { background-position: 0 0; }
+  to   { background-position: -2688px 0; }
+}
+
+.cube_screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  gap: 40px;
+  transform: translateY(100%);
+}
+
+@keyframes rise_up {
+  0%   { transform: translateY(100%); }
+  80%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.cube_img {
+  width: 65%;
+  image-rendering: pixelated;
+  animation: cube_float 2s ease-in-out infinite;
+}
+
+.cube_screen.rise {
+  animation: rise_up 1.5s forwards;
+}
+
+@keyframes cube_float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}

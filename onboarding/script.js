@@ -85,8 +85,27 @@ looks_good.addEventListener( 'click', () => {
 });
 
 for ( const btn of document.querySelectorAll( '.action' ) ) {
+  if ( btn.id === 'hmm' ) continue;
   btn.addEventListener( 'click', () => {
     play( click_sound );
     go_next();
   });
 }
+
+hmm.addEventListener( 'click', () => {
+  play( click_sound );
+
+  const guy = document.querySelector( '#p7 .henry' );
+  guy.classList.remove( 'look' );
+  guy.classList.add( 'raise' );
+
+  p8.classList.add( 'on' );
+
+  setTimeout( () => {
+    p8.classList.add( 'rise' );
+  }, 2004 );
+
+  setTimeout( go_next, 3504 );
+
+  setTimeout( go_next, 5504 );
+});
