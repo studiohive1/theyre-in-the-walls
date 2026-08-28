@@ -84,7 +84,9 @@ looks_good.addEventListener( 'click', () => {
   go_next();
 });
 
-whats_wrong.addEventListener( 'click', () => {
-  play( click_sound );
-  go_next();
-});
+for ( const btn of document.querySelectorAll( '.action' ) ) {
+  btn.addEventListener( 'click', () => {
+    play( click_sound );
+    go_next();
+  });
+}

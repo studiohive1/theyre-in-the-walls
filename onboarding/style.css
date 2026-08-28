@@ -289,7 +289,7 @@ body {
 
 .action {
   position: absolute;
-  top: 72%;
+  top: 64%;
   left: 50%;
   transform: translateX( -50% );
   box-sizing: border-box;
