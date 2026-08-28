@@ -233,3 +233,41 @@ body {
 #p3.typing #thats_me { top: 44%; z-index: 2; }
 
 #hi_name { color: #F15946; }
+
+#popup_card {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translateX( -50% );
+  width: 350px;
+  height: 185px;
+  background: url(assets/popup-card.png) no-repeat;
+  image-rendering: pixelated;
+}
+
+#card_name {
+  position: absolute;
+  top: 26px;
+  left: 20px;
+  right: 20px;
+  margin: 0;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  text-align: center;
+}
+
+#looks_good {
+  position: absolute;
+  bottom: 14px;
+  left: 30px;
+  right: 30px;
+  height: 48px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#popup_card:has( #looks_good:active ) {
+  background-image: url(assets/popup-card-pressed.png);
+}

@@ -63,6 +63,7 @@ thats_me.addEventListener( 'click', () => {
     .then( result => {
       if ( !result ) return;
       hi_name.textContent = name_box.value.trim().toUpperCase();
+      card_name.textContent = name_box.value.trim();
       go_next();
     });
 }); 
