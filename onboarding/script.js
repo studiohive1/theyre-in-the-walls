@@ -60,3 +60,11 @@ thats_me.addEventListener( 'click', () => {
       go_next();
     });
 });
+
+name_box.addEventListener( 'focus', () => {
+  p3.classList.add( 'typing' );
+});
+
+name_box.addEventListener( 'blur', () => {
+  p3.classList.remove( 'typing' );
+});
