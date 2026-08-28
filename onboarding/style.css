@@ -7,6 +7,9 @@ body {
   flex-direction: column;
   background: #12263A;
   overflow: hidden;
+  font-family: 'Jersey 25', system-ui;
+  line-height: 0.66;
+  letter-spacing: -0.02em;
 }
 
 #back_eft_top, #back_eft_bottom {
@@ -270,4 +273,42 @@ body {
 
 #popup_card:has( #looks_good:active ) {
   background-image: url(assets/popup-card-pressed.png);
+}
+
+.look {
+  background-image: url(assets/intro-p2.png);
+  background-size: 3264px 192px;
+  animation: look 2.672s steps(16) infinite;
+  background-position: -192px 0;
+}
+
+@keyframes look {
+  from { background-position: -192px 0; }
+  to   { background-position: -3264px 0; }
+}
+
+.action {
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  transform: translateX( -50% );
+  box-sizing: border-box;
+  width: 290px;
+  height: 54px;
+  padding-bottom: 9px;
+  border: none;
+  background: url(assets/button-longer.png) no-repeat center / 100% 100%;
+  color: #15131E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  line-height: 0.66;
+  letter-spacing: -0.5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.action:active {
+  background-image: url(assets/button-longer-pressed.png);
+  padding-bottom: 0;
+  padding-top: 9px;
 }

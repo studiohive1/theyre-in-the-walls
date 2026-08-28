@@ -78,3 +78,13 @@ name_box.addEventListener( 'focus', () => {
 name_box.addEventListener( 'blur', () => {
   p3.classList.remove( 'typing' );
 });
+
+looks_good.addEventListener( 'click', () => {
+  play( click_sound );
+  go_next();
+});
+
+whats_wrong.addEventListener( 'click', () => {
+  play( click_sound );
+  go_next();
+});
