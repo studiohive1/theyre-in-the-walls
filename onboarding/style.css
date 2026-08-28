@@ -231,3 +231,5 @@ body {
 #p3.typing #popup_name { display: block; z-index: 2; }
 #p3.typing #name_box { top: 34%; z-index: 2; }
 #p3.typing #thats_me { top: 44%; z-index: 2; }
+
+#hi_name { color: #F15946; }

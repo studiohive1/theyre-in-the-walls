@@ -53,13 +53,19 @@ thats_me.addEventListener( 'click', () => {
     .select()
     .single()
     .then( result => {
+      if ( result.error ) {
+        console.log( result.error );
+        return;
+      }
       user_id = result.data.id;
       return db.from( 'nfc_cards' ).insert({ guid: card_guid, user_id: user_id });
     })
-    .then( () => {
+    .then( result => {
+      if ( !result ) return;
+      hi_name.textContent = name_box.value.trim().toUpperCase();
       go_next();
     });
-});
+}); 
 
 name_box.addEventListener( 'focus', () => {
   p3.classList.add( 'typing' );
