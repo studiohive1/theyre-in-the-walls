@@ -117,13 +117,13 @@ const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
 const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';
 const db = supabase.createClient( supa_api, supa_key );
 
-const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
-// testing with my user id for now!
+const user_id = localStorage.getItem( 'user_id' ) || 'd860b0b8-2eae-480e-b858-994873709af7';
+// need to check this with patricia's nfc card!
 
 function save_done( given ) {
   db.from( 'progress' )
     .insert({
-      user_id: test_user,
+      user_id: user_id,
       exhibit_id: 'telecomm',
       challenge_id: chal_id,
       type: 'ar',
@@ -140,7 +140,7 @@ function save_done( given ) {
 function save_try( given ) {
   db.from( 'progress' )
     .insert({
-      user_id: test_user,
+      user_id: user_id,
       exhibit_id: 'telecomm',
       challenge_id: chal_id,
       type: 'ar',
@@ -155,7 +155,7 @@ function save_try( given ) {
 function count_progress() {
   db.from( 'progress' )
     .select( 'challenge_id' )
-    .eq( 'user_id', test_user )
+    .eq( 'user_id', user_id )
     .eq( 'exhibit_id', 'telecomm' )
     .eq( 'completed', true )
     .then( result => {

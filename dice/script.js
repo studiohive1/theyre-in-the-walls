@@ -298,12 +298,12 @@ const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
 const supa_key = 'sb_publishable_xhJeQe0pPWiMq19Q5UgwgA_8b5mAJUg';
 const db = supabase.createClient( supa_api, supa_key );
 
-const test_user = 'd860b0b8-2eae-480e-b858-994873709af7';
-// testing with my user id for now!
+const user_id = localStorage.getItem( 'user_id' ) || 'd860b0b8-2eae-480e-b858-994873709af7';
+// need to check this with patricia's nfc card!
 
 db.from( 'progress' )
   .select( 'type' )
-  .eq( 'user_id', test_user )
+  .eq( 'user_id', user_id )
   .eq( 'exhibit_id', 'telecomm' )
   .eq( 'completed', true )
   .then( result => {

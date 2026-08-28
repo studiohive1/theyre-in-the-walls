@@ -58,10 +58,13 @@ thats_me.addEventListener( 'click', () => {
         return;
       }
       user_id = result.data.id;
-      return db.from( 'nfc_cards' ).insert({ guid: card_guid, user_id: user_id });
+      if ( card_guid ) {
+        return db.from( 'nfc_cards' ).insert({ guid: card_guid, user_id: user_id });
+      }
     })
     .then( result => {
-      if ( !result ) return;
+      if ( !user_id ) return;
+      localStorage.setItem( 'user_id', user_id );
       hi_name.textContent = name_box.value.trim().toUpperCase();
       card_name.textContent = name_box.value.trim();
       go_next();
