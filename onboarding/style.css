@@ -312,3 +312,17 @@ body {
   padding-bottom: 0;
   padding-top: 9px;
 }
+
+.cube_screen {
+  gap: 40px;
+}
+
+.title_img {
+  width: 80%;
+  image-rendering: pixelated;
+}
+
+.cube_img {
+  width: 65%;
+  image-rendering: pixelated;
+}
