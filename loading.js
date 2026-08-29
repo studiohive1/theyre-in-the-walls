@@ -5,11 +5,20 @@ const db = supabase.createClient( supa_api, supa_key );
 const card_guid = new URLSearchParams( location.search ).get( 'card' );
 
 let return_user = false;
+let checked = false;
+let waited = false;
 
 function go_title() {
+  if ( !checked || !waited ) return;
   loading.classList.remove( 'on' );
   title.classList.add( 'on' );
 }
+
+setTimeout( () => {
+  waited = true;
+  go_title();
+}, 1000 );
+// 1 second looks good but can check with the team later
 
 if ( card_guid ) {
   db.from( 'nfc_cards' )
@@ -21,12 +30,14 @@ if ( card_guid ) {
         return_user = true;
         localStorage.setItem( 'user_id', result.data.user_id );
       }
+      checked = true;
       go_title();
     });
 } else {
   if ( localStorage.getItem( 'user_id' ) ) {
     return_user = true;
   }
+  checked = true;
   go_title();
 }
 
