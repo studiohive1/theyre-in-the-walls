@@ -73,6 +73,9 @@ thats_me.addEventListener( 'click', () => {
 
 name_box.addEventListener( 'focus', () => {
   p3.classList.add( 'typing' );
+  setTimeout( () => {
+    window.scrollTo( 0, 0 );
+  }, 100 );
 });
 
 name_box.addEventListener( 'blur', () => {

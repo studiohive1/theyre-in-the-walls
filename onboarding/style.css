@@ -6,7 +6,7 @@ body {
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  background: #12263A url(assets/onboarding.png) no-repeat bottom center / 100% auto;
+  background: #12263A;
   overflow: hidden;
   font-family: 'Jersey 25', system-ui;
   line-height: 0.66;
@@ -14,26 +14,23 @@ body {
   image-rendering: pixelated;
 }
 
-/*
-#back_eft_top, #back_eft_bottom {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  height: 345px;
-  pointer-events: none;
-  image-rendering: pixelated;
+.fixed_layout .action,
+.fixed_layout .textbox,
+.fixed_layout .label,
+.fixed_layout #name_box,
+.fixed_layout #thats_me {
+  position: static;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  transform: none;
 }
 
-#back_eft_top {
-  top: 0;
-  background: url(assets/pixel-effect-top.png) repeat-x;
+#p3 {
+  gap: 20px;
+  justify-content: flex-start;
+  padding-top: calc(57dvh + 40px);
 }
-
-#back_eft_bottom {
-  bottom: 0;
-  background: url(assets/pixel-effect-bottom.png) repeat-x;
-}
-*/
 
 #ground {
   position: fixed;
@@ -202,7 +199,7 @@ body {
 
 #thats_me {
   position: absolute;
-  top: 71%;
+  top: 74%;
   left: 50%;
   transform: translateX( -50% );
   box-sizing: border-box;
@@ -246,10 +243,23 @@ body {
   z-index: 1;
 }
 
+#p3.typing {
+  justify-content: flex-start;
+  padding-top: 12dvh;
+  gap: 24px;
+}
+
 #p3.typing .label { display: none; }
-#p3.typing #popup_name { display: block; z-index: 2; }
-#p3.typing #name_box { top: 34%; z-index: 2; }
-#p3.typing #thats_me { top: 44%; z-index: 2; }
+
+#p3.typing #popup_name {
+  display: block;
+  z-index: 2;
+  position: static;
+  width: 100%;
+}
+
+#p3.typing #name_box { z-index: 2; }
+#p3.typing #thats_me { z-index: 2; }
 
 #hi_name { color: #F15946; }
 
