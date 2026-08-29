@@ -153,7 +153,7 @@ body {
   color: #12263A;
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
-  line-height: 1.3;
+  line-height: 1.07;
   box-sizing: border-box;
 }
 
@@ -319,9 +319,11 @@ body {
 .cube_screen {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
+  box-sizing: border-box;
+  padding: 0 16px;
   gap: 40px;
   transform: translateY(100%);
-  background: #15131E; 
+  background: #15131E;
   overflow: hidden;
 }
 
@@ -334,6 +336,14 @@ body {
   height: 345px;
   pointer-events: none;
   image-rendering: pixelated;
+  z-index: 0;
+}
+
+.cube_screen .textbox,
+.cube_screen .container,
+.cube_screen .action {
+  position: relative;
+  z-index: 1;
 }
 
 .cube_screen::before {
@@ -404,4 +414,36 @@ body {
 #p5, #p6, #p7 {
   justify-content: flex-start;
   padding-top: calc(57dvh + 40px);
+}
+
+.talk_screen {
+  justify-content: flex-end;
+  padding-bottom: 15dvh;
+  gap: 32px;
+}
+
+.talk_screen .textbox {
+  position: absolute;
+  top: 170px;
+  left: 16px;
+  right: 16px;
+  z-index: 1;
+}
+
+.talk {
+  position: absolute;
+  top: 35px;
+  right: 24px;
+  width: 192px;
+  height: 192px;
+  background: url(assets/rules-1.png) 0 0;
+  background-size: 1920px 192px;
+  image-rendering: pixelated;
+  animation: talk 1.67s steps(10) infinite;
+  z-index: 0;
+}
+
+@keyframes talk {
+  from { background-position: 0 0; }
+  to   { background-position: -1920px 0; }
 }
