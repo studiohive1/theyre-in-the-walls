@@ -65,7 +65,7 @@ thats_me.addEventListener( 'click', () => {
     .then( result => {
       if ( !user_id ) return;
       localStorage.setItem( 'user_id', user_id );
-      hi_name.textContent = name_box.value.trim().toUpperCase();
+      username.textContent = name_box.value.trim().toUpperCase();
       card_name.textContent = name_box.value.trim();
       go_next();
     });

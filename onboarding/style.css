@@ -14,6 +14,10 @@ body {
   image-rendering: pixelated;
 }
 
+.highlight {
+  color: #F15946;
+}
+
 #p3 {
   gap: 20px;
   justify-content: flex-start;
@@ -239,8 +243,6 @@ body {
 
 #p3.typing #name_box { z-index: 2; }
 #p3.typing #thats_me { z-index: 2; }
-
-#hi_name { color: #F15946; }
 
 #popup_card {
   position: absolute;
