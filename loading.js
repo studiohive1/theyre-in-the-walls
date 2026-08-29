@@ -22,13 +22,14 @@ setTimeout( () => {
 
 if ( card_guid ) {
   db.from( 'nfc_cards' )
-    .select( 'user_id' )
+    .select( 'user_id, users(username)' )
     .eq( 'guid', card_guid )
     .maybeSingle()
     .then( result => {
       if ( result.data ) {
         return_user = true;
         localStorage.setItem( 'user_id', result.data.user_id );
+        localStorage.setItem( 'username', result.data.users.username );
       }
       checked = true;
       go_title();

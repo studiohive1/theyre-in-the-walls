@@ -130,7 +130,10 @@ left.addEventListener( 'click', () => {
 
 right.addEventListener( 'click', () => {
   play( click_sound );
-  if ( rule_now >= 3 ) return;
+  if ( rule_now >= 3 ) {
+    location.href = '../dice/';
+    return;
+  }
   rule_now = rule_now + 1;
   show_rule();
 });
