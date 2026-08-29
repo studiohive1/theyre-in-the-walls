@@ -112,3 +112,24 @@ hmm.addEventListener( 'click', () => {
 
   setTimeout( go_next, 5504 );
 });
+
+let rule_now = 0;
+const slide = document.querySelector( '.slide' );
+
+function show_rule() {
+  slide.style.transform = 'translateX(' + ( rule_now * -25 ) + '%)';
+}
+
+left.addEventListener( 'click', () => {
+  play( click_sound );
+  if ( rule_now <= 0 ) return;
+  rule_now = rule_now - 1;
+  show_rule();
+});
+
+right.addEventListener( 'click', () => {
+  play( click_sound );
+  if ( rule_now >= 3 ) return;
+  rule_now = rule_now + 1;
+  show_rule();
+});

@@ -357,8 +357,12 @@ body {
   background: url(assets/pixel-effect-bottom.png) repeat-x;
 }
 
-.talk_screen.on {
+.cube_screen.on {
   transform: translateY(0);
+}
+
+#p8.on {
+  transform: translateY(100%);
 }
 
 .title_img {
@@ -474,3 +478,64 @@ body {
 .locked .cube_img {
   opacity: 0.46;
 }
+
+.panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 350 / 455;
+  background: url(assets/mechanic.png) no-repeat center / 100% 100%;
+  image-rendering: pixelated;
+}
+
+.window {
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  width: 80%;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  width: 400%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.rule {
+  width: 25%;
+  image-rendering: pixelated;
+  align-self: flex-start;
+}
+
+#p11 .container {
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  animation: none;
+}
+
+#p11 .card_btn {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+}
+
+#left, #right {
+  width: 60px;
+  height: 62px;
+  border: none;
+  background: url(assets/button-back.png) no-repeat;
+  cursor: pointer;
+}
+
+#left:active, #right:active {
+  background-image: url(assets/button-back-pressed.png);
+}
+
+#right { transform: scaleX(-1); }
