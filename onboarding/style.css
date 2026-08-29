@@ -14,17 +14,6 @@ body {
   image-rendering: pixelated;
 }
 
-.fixed_layout .action,
-.fixed_layout .label,
-.fixed_layout #name_box,
-.fixed_layout #thats_me {
-  position: static;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  transform: none;
-}
-
 #p3 {
   gap: 20px;
   justify-content: flex-start;
@@ -165,8 +154,6 @@ body {
 }
 
 .label {
-  position: absolute;
-  top: 60%;
   left: 0;
   width: 100%;
   margin: 0;
@@ -177,10 +164,7 @@ body {
 }
 
 #name_box {
-  position: absolute;
-  top: 64%;
-  left: 16px;
-  right: 16px;
+  width: 100%;
   box-sizing: border-box;
   height: 50px;
   background: none;
@@ -197,10 +181,6 @@ body {
 }
 
 #thats_me {
-  position: absolute;
-  top: 74%;
-  left: 50%;
-  transform: translateX( -50% );
   box-sizing: border-box;
   width: 189px;
   height: 65px;
@@ -313,10 +293,6 @@ body {
 }
 
 .action {
-  position: absolute;
-  top: 64%;
-  left: 50%;
-  transform: translateX( -50% );
   box-sizing: border-box;
   width: 290px;
   height: 54px;
@@ -373,11 +349,6 @@ body {
   image-rendering: pixelated;
 }
 
-.cube_img {
-  width: 65%;
-  image-rendering: pixelated;
-}
-
 .raise {
   background-image: url(assets/intro-p3.png);
   background-size: 2688px 192px;
@@ -387,13 +358,6 @@ body {
 @keyframes raise {
   from { background-position: 0 0; }
   to   { background-position: -2688px 0; }
-}
-
-.cube_screen {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  gap: 40px;
-  transform: translateY(100%);
 }
 
 @keyframes rise_up {
