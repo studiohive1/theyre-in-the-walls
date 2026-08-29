@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  background: #15131E;
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+.step {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.step.on { display: flex; }
+
+.logo {
+  width: 70%;
+  image-rendering: pixelated;
+}
+
+.partner {
+  margin: 0;
+  color: #FFFFFF;
+  font-family: quokka, system-ui;
+  font-size: 24px;
+  line-height: 0.8;
+  text-align: center;
+}
+
+.hive {
+  width: 40%;
+}
+
+.title_art {
+  width: 85%;
+  image-rendering: pixelated;
+}
+
+#start {
+  box-sizing: border-box;
+  width: 189px;
+  height: 65px;
+  padding-bottom: 11px;
+  border: none;
+  background: url(assets/button.png) no-repeat;
+  color: #15131E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 31px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#start:active {
+  background-image: url(assets/button-pressed.png);
+  padding-bottom: 3px;
+  padding-top: 8px;
+}
+
+#loading .hive,
+#loading .partner {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#loading .partner {
+  bottom: 15dvh;
+}
+
+#loading .hive {
+  bottom: 8dvh;
+}
