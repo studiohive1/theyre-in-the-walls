@@ -16,11 +16,29 @@
   box-sizing: border-box;
   width: 326px;
   height: 509px;
-  padding: 70px 18px 0;
+  padding: 90px 18px 0;
   background: url(assets/popup-pause.png) no-repeat center / 100% 100%;
   image-rendering: pixelated;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
+}
+
+#pause_close {
+  position: absolute;
+  top: 32px;
+  right: 20px;
+  width: 29px;
+  height: 29px;
+  border: none;
+  background: url(assets/button-close.png) no-repeat center / contain;
+  cursor: pointer;
+}
+
+#you_are_in {
+  width: 290px;
+  height: 92px;
+  background: url(assets/you-are-in.png) no-repeat center / 100% 100%;
+  image-rendering: pixelated;
 }
