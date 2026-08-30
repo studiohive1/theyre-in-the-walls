@@ -16,7 +16,7 @@
   box-sizing: border-box;
   width: 326px;
   height: 509px;
-  padding: 90px 18px 0;
+  padding: 24px 18px 0;
   background: url(assets/popup-pause.png) no-repeat center / 100% 100%;
   image-rendering: pixelated;
   display: flex;
@@ -25,9 +25,18 @@
   gap: 14px;
 }
 
+#pause_title {
+  margin: 0;
+  color: #5448C8;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 48px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
+}
+
 #pause_close {
   position: absolute;
-  top: 32px;
+  top: 34px;
   right: 20px;
   width: 29px;
   height: 29px;
@@ -37,8 +46,66 @@
 }
 
 #you_are_in {
+  box-sizing: border-box;
   width: 290px;
   height: 92px;
+  padding-top: 16px;
   background: url(assets/you-are-in.png) no-repeat center / 100% 100%;
   image-rendering: pixelated;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.cur_label {
+  margin: 0;
+  color: #F9C22E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 22.45px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
+}
+
+#cur_exhibit {
+  box-sizing: border-box;
+  width: 250px;
+  height: 40px;
+  margin: 0;
+  padding-top: 16px;
+  background: url(assets/button-yellow-pressed.png) no-repeat center / 100% 100%;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 21.73px;
+  line-height: 0.66;
+  letter-spacing: -0.019em;
+  text-align: center;
+}
+
+.menu {
+  box-sizing: border-box;
+  width: 290px;
+  height: 54px;
+  padding-bottom: 9px;
+  border: none;
+  background: no-repeat center / 100% 100%;
+  color: #12263A;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  line-height: 0.66;
+  letter-spacing: -0.019em;
+  cursor: pointer;
+}
+
+.menu:active {
+  padding-bottom: 0;
+  padding-top: 9px;
+}
+
+#resume { background-image: url(assets/button-red.png); }
+#resume:active { background-image: url(assets/button-red-pressed.png); }
+
+#engineers { background-image: url(assets/button-green.png); }
+#engineers:active { background-image: url(assets/button-green-pressed.png); }
+
+#switch_exhibit { background-image: url(assets/button-purple.png); }
+#switch_exhibit:active { background-image: url(assets/button-purple-pressed.png); }
