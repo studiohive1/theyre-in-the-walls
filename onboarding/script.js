@@ -116,9 +116,16 @@ hmm.addEventListener( 'click', () => {
 
 let rule_now = 0;
 const slide = document.querySelector( '.slide' );
+const gifs = [
+  'assets/dice-rules-1.gif',
+  'assets/dice-rules-2.gif',
+  'assets/dice-rules-3.gif',
+  'assets/dice-rules-4.gif'
+];
 
 function show_rule() {
   slide.style.transform = 'translateX(' + ( rule_now * -25 ) + '%)';
+  cube_gif.src = gifs[ rule_now ];
 }
 
 left.addEventListener( 'click', () => {
