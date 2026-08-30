@@ -521,7 +521,7 @@ body {
 
 #p11 .container {
   position: absolute;
-  top: 44%;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
   width: 55%;
@@ -530,7 +530,7 @@ body {
 
 #p11 .card_btn {
   position: absolute;
-  bottom: 4%;
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -566,7 +566,7 @@ body {
 #chal_card {
   display: none;
   position: absolute;
-  top: -10%;
+  top: 0%;
   left: 50%;
   transform: translateX(-50%);
   width: 50%;
