@@ -17,8 +17,8 @@ function go_title() {
 setTimeout( () => {
   waited = true;
   go_title();
-}, 1000 );
-// 1 second looks good but can check with the team later
+}, 2000 );
+// checked with cass!
 
 if ( card_guid ) {
   db.from( 'nfc_cards' )
