@@ -1,3 +1,11 @@
+:root {
+  --tuscan-sun: #F9C22E;
+  --tomato: #F15946;
+  --emerald: #00CC66;
+  --deep-space: #12263A;
+  --violet-twilight: #5448C8;
+}
+
 #pause_screen {
   display: flex;
   position: fixed;
@@ -27,7 +35,7 @@
 
 #pause_title {
   margin: 0;
-  color: #5448C8;
+  color: var( --violet-twilight );
   font-family: 'Jersey 25', system-ui;
   font-size: 48px;
   line-height: 1.07;
@@ -59,7 +67,7 @@
 
 .cur_label {
   margin: 0;
-  color: #F9C22E;
+  color: var( --tuscan-sun );
   font-family: 'Jersey 25', system-ui;
   font-size: 22.45px;
   line-height: 1.07;
@@ -73,7 +81,7 @@
   margin: 0;
   padding-top: 16px;
   background: url(assets/button-yellow-pressed.png) no-repeat center / 100% 100%;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 21.73px;
   line-height: 0.66;
@@ -88,7 +96,7 @@
   padding-bottom: 9px;
   border: none;
   background: no-repeat center / 100% 100%;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 0.66;
