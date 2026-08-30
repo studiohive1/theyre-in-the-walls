@@ -494,7 +494,7 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  aspect-ratio: 350 / 480;
+  aspect-ratio: 350 / 500;
   background: url(assets/mechanic.png) no-repeat center / 100% 100%;
   image-rendering: pixelated;
 }
@@ -521,7 +521,7 @@ body {
 
 #p11 .container {
   position: absolute;
-  top: 40%;
+  top: 42%;
   left: 50%;
   transform: translateX(-50%);
   width: 55%;
@@ -530,7 +530,7 @@ body {
 
 #p11 .card_btn {
   position: absolute;
-  bottom: 8%;
+  bottom: 4%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
