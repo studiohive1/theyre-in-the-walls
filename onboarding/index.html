@@ -13,6 +13,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../script.js" defer></script>
   <script src="script.js" defer></script>
+  <link rel="stylesheet" href="../pause/pause.css">
+  <script src="../pause/pause.js" defer></script>
 </head>
 <body>
   <div id="ground"></div>
@@ -102,6 +104,15 @@
         <button id="left"></button>
         <button id="right"></button>
       </div>
+    </div>
+  </div>
+  <div id="pause_screen">
+    <div id="pause_card">
+      <button id="pause_close"></button>
+      <div id="here_box"></div>
+      <button class="menu" id="resume">RESUME</button>
+      <button class="menu" id="engineers">ENGINEERS FOUND</button>
+      <button class="menu" id="switch_exhibit">SWITCH EXHIBIT</button>
     </div>
   </div>
   </body>
