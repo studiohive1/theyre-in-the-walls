@@ -27,21 +27,14 @@ body {
   image-rendering: pixelated;
 }
 
-.partner {
-  margin: 0;
-  color: #FFFFFF;
-  font-family: quokka, system-ui;
-  font-size: 24px;
-  line-height: 0.8;
-  text-align: center;
+.titw {
+  width: 60%;
+  image-rendering: pixelated;
+  animation: float 2s ease-in-out infinite;
 }
 
 .hive {
-  width: 40%;
-}
-
-.title_art {
-  width: 85%;
+  width: 22%;
   image-rendering: pixelated;
 }
 
@@ -55,7 +48,8 @@ body {
   color: #15131E;
   font-family: 'Jersey 25', system-ui;
   font-size: 31px;
-  letter-spacing: 1px;
+  line-height: 0.66;
+  letter-spacing: -0.019em;
   cursor: pointer;
 }
 
@@ -65,17 +59,67 @@ body {
   padding-top: 8px;
 }
 
-#loading .hive,
-#loading .partner {
+#loading .hive {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-#loading .partner {
-  bottom: 15dvh;
-}
-
-#loading .hive {
   bottom: 8dvh;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+#title::before,
+#title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 345px;
+  pointer-events: none;
+  image-rendering: pixelated;
+  z-index: 0;
+}
+
+#title::before {
+  top: 0;
+  background: url(assets/pixel-effect-top.png) repeat-x;
+}
+
+#title::after {
+  bottom: 0;
+  background: url(assets/pixel-effect-bottom.png) repeat-x;
+}
+
+.logo, .hive, .titw, #start {
+  position: relative;
+  z-index: 1;
+}
+
+#title {
+  gap: 60px;
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.step.on {
+  opacity: 1;
+  pointer-events: auto;
 }
