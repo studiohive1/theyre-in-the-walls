@@ -151,13 +151,13 @@ let frame_now = 0;
 let sprite_timer = null;
 
 function show_card() {
-  if ( frame_now <= 11 ) {
+  if ( frame_now >= 3 && frame_now <= 11 ) {
     chal_card.src = 'assets/input-card.png';
     chal_card.classList.add( 'show' );
-  } else if ( frame_now >= 24 && frame_now <= 36 ) {
+  } else if ( frame_now >= 27 && frame_now <= 36 ) {
     chal_card.src = 'assets/qr-card.png';
     chal_card.classList.add( 'show' );
-  } else if ( frame_now >= 49 && frame_now <= 60 ) {
+  } else if ( frame_now >= 52 && frame_now <= 60 ) {
     chal_card.src = 'assets/ar-card.png';
     chal_card.classList.add( 'show' );
   } else {
