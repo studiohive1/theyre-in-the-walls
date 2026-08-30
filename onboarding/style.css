@@ -494,7 +494,7 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  aspect-ratio: 350 / 455;
+  aspect-ratio: 350 / 480;
   background: url(assets/mechanic.png) no-repeat center / 100% 100%;
   image-rendering: pixelated;
 }
@@ -521,7 +521,7 @@ body {
 
 #p11 .container {
   position: absolute;
-  top: 37%;
+  top: 44%;
   left: 50%;
   transform: translateX(-50%);
   width: 55%;
@@ -530,7 +530,7 @@ body {
 
 #p11 .card_btn {
   position: absolute;
-  bottom: 8%;
+  bottom: 4%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -550,3 +550,28 @@ body {
 }
 
 #right { transform: scaleX(-1); }
+
+#dice_sprite {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: url(assets/dice-rules-2.png) 0 0 no-repeat;
+  background-size: 7300% 100%;
+  image-rendering: pixelated;
+}
+
+#p11.sprite_mode #cube_gif { display: none; }
+#p11.sprite_mode #dice_sprite { display: block; }
+
+#chal_card {
+  display: none;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  image-rendering: pixelated;
+  z-index: 1;
+}
+
+#chal_card.show { display: block; }

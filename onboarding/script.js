@@ -126,6 +126,8 @@ const gifs = [
 function show_rule() {
   slide.style.transform = 'translateX(' + ( rule_now * -25 ) + '%)';
   cube_gif.src = gifs[ rule_now ];
+  stop_sprite();
+  if ( rule_now === 1 ) start_sprite();
 }
 
 left.addEventListener( 'click', () => {
@@ -144,3 +146,40 @@ right.addEventListener( 'click', () => {
   rule_now = rule_now + 1;
   show_rule();
 });
+
+let frame_now = 0;
+let sprite_timer = null;
+
+function show_card() {
+  if ( frame_now <= 11 ) {
+    chal_card.src = 'assets/input-card.png';
+    chal_card.classList.add( 'show' );
+  } else if ( frame_now >= 24 && frame_now <= 36 ) {
+    chal_card.src = 'assets/qr-card.png';
+    chal_card.classList.add( 'show' );
+  } else if ( frame_now >= 49 && frame_now <= 60 ) {
+    chal_card.src = 'assets/ar-card.png';
+    chal_card.classList.add( 'show' );
+  } else {
+    chal_card.classList.remove( 'show' );
+  }
+}
+
+function next_frame() {
+  dice_sprite.style.backgroundPosition = ( frame_now * 100 / 72 ) + '% 0';
+  show_card();
+  frame_now = frame_now + 1;
+  if ( frame_now >= 73 ) frame_now = 0;
+}
+
+function start_sprite() {
+  p11.classList.add( 'sprite_mode' );
+  frame_now = 0;
+  sprite_timer = setInterval( next_frame, 125 );
+}
+
+function stop_sprite() {
+  p11.classList.remove( 'sprite_mode' );
+  chal_card.classList.remove( 'show' );
+  clearInterval( sprite_timer );
+}
