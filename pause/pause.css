@@ -8,6 +8,8 @@
   --deep-sky: #30C5FF;
   --orange: #EB6F00;
   --pink: #C96EBD;
+  --white: #E1DFDF;
+  --empty: #44576A;
 }
 
 #pause_screen {
@@ -117,11 +119,23 @@
   padding-top: 9px;
 }
 
-#resume { background-image: url(assets/button-red.png); }
+#resume {
+  background-image: url(assets/button-red.png);
+  color: var( --white );
+}
+
 #resume:active { background-image: url(assets/button-red-pressed.png); }
 
-#engineers { background-image: url(assets/button-green.png); }
+#engineers {
+  background-image: url(assets/button-green.png);
+  color: var( --new-background );
+}
+
 #engineers:active { background-image: url(assets/button-green-pressed.png); }
 
-#switch_exhibit { background-image: url(assets/button-purple.png); }
+#switch_exhibit {
+  background-image: url(assets/button-purple.png);
+  color: var( --tuscan-sun );
+}
+
 #switch_exhibit:active { background-image: url(assets/button-purple-pressed.png); }
