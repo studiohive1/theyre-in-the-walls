@@ -148,3 +148,39 @@
 }
 
 #switch_exhibit:active { background-image: url(assets/button-purple-pressed.png); }
+
+#sound_box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 290px;
+}
+
+.sound_each {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.each_icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background: no-repeat center / contain;
+  image-rendering: pixelated;
+}
+
+#icon_sound { background-image: url(assets/sound.png); }
+#icon_dialogue { background-image: url(assets/dialogue.png); }
+#icon_music { background-image: url(assets/music.png); }
+
+.each_label {
+  margin: 0;
+  width: 110px;
+  flex-shrink: 0;
+  color: var( --new-background );
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
+}
