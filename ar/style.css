@@ -130,8 +130,9 @@ body {
   background: url(assets/button.png) no-repeat;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 33.67px;
+  line-height: 0.66;
+  letter-spacing: -0.019em;
   cursor: pointer;
 }
 
@@ -247,14 +248,24 @@ body.solved #correct { display: flex; }
 }
 
 #next {
+  box-sizing: border-box;
   width: 189px;
   height: 65px;
+  padding-bottom: 11px;
   border: none;
   background: url(assets/button.png) no-repeat;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
-  font-size: 24px;
+  font-size: 33.67px;
+  line-height: 0.66;
+  letter-spacing: -0.019em;
   cursor: pointer;
+}
+
+#next:active {
+  background-image: url(assets/button-pressed.png);
+  padding-bottom: 3px;
+  padding-top: 8px;
 }
 
 #hint_box {
