@@ -1,3 +1,12 @@
+:root {
+  --tuscan-sun: #F9C22E;
+  --tomato: #F15946;
+  --emerald: #00CC66;
+  --deep-space: #12263A;
+  --violet-twilight: #5448C8;
+  --new-background: #15131E;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -6,7 +15,7 @@ body {
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  background: #12263A;
+  background: var( --deep-space );
   overflow: hidden;
   font-family: 'Jersey 25', system-ui;
   line-height: 0.66;
@@ -15,7 +24,7 @@ body {
 }
 
 .highlight {
-  color: #F15946;
+  color: var( --tomato );
 }
 
 #p3 {
@@ -30,7 +39,7 @@ body {
   left: 0;
   width: 100%;
   height: 43dvh;
-  background: #15131E;
+  background: var( --new-background );
   pointer-events: none;
 }
 
@@ -131,7 +140,7 @@ body {
   left: 0;
   width: 100%;
   margin: 0;
-  color: #F9C22E;
+  color: var( --tuscan-sun );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;
@@ -150,7 +159,7 @@ body {
   border-image-source: url(assets/dialogue-textbox.png);
   border-image-slice: 8 fill;
   image-rendering: pixelated;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 1.07;
@@ -161,7 +170,7 @@ body {
   left: 0;
   width: 100%;
   margin: 0;
-  color: #F9C22E;
+  color: var( --tuscan-sun );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;
@@ -178,7 +187,7 @@ body {
   border-image-slice: 12 fill;
   image-rendering: pixelated;
   padding: 0 8px;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;
@@ -191,7 +200,7 @@ body {
   padding-bottom: 11px;
   border: none;
   background: url(assets/button.png) no-repeat;
-  color: #15131E;
+  color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 31px;
   letter-spacing: 1px;
@@ -261,7 +270,7 @@ body {
   left: 20px;
   right: 20px;
   margin: 0;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;
@@ -278,7 +287,7 @@ body {
   padding-bottom: 9px;
   border: none;
   background: url(assets/button-longer.png) no-repeat center / 100% 100%;
-  color: #15131E;
+  color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 0.66;
@@ -312,7 +321,7 @@ body {
   padding-bottom: 9px;
   border: none;
   background: url(assets/button-longer.png) no-repeat center / 100% 100%;
-  color: #15131E;
+  color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 0.66;
@@ -334,7 +343,7 @@ body {
   padding: 0 16px;
   gap: 40px;
   transform: translateY(100%);
-  background: #15131E;
+  background: var( --new-background );
   overflow: hidden;
 }
 
@@ -470,7 +479,7 @@ body {
 
 .talk2 {
   position: absolute;
-  top: 35px;
+  top: 10px;
   right: 24px;
   width: 192px;
   height: 192px;
