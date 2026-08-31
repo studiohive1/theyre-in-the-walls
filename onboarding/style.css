@@ -5,6 +5,9 @@
   --deep-space: #12263A;
   --violet-twilight: #5448C8;
   --new-background: #15131E;
+  --deep-sky: #30C5FF;
+  --orange: #EB6F00;
+  --pink: #C96EBD;
 }
 
 body {
@@ -286,7 +289,7 @@ body {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  background: url(assets/button-longer.png) no-repeat center / 100% 100%;
+  background: url(assets/button-yellow.png) no-repeat center / 100% 100%;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
@@ -297,7 +300,7 @@ body {
 }
 
 #looks_good:active {
-  background-image: url(assets/button-longer-pressed.png);
+  background-image: url(assets/button-yellow-pressed.png);
   padding-bottom: 0;
   padding-top: 9px;
 }
@@ -320,7 +323,7 @@ body {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  background: url(assets/button-longer.png) no-repeat center / 100% 100%;
+  background: url(assets/button-yellow.png) no-repeat center / 100% 100%;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
@@ -331,7 +334,7 @@ body {
 }
 
 .action:active {
-  background-image: url(assets/button-longer-pressed.png);
+  background-image: url(assets/button-yellow-pressed.png);
   padding-bottom: 0;
   padding-top: 9px;
 }

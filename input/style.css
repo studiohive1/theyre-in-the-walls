@@ -1,5 +1,17 @@
 /*-- video { width: 100vw; } */
 
+:root {
+  --tuscan-sun: #F9C22E;
+  --tomato: #F15946;
+  --emerald: #00CC66;
+  --deep-space: #12263A;
+  --violet-twilight: #5448C8;
+  --new-background: #15131E;
+  --deep-sky: #30C5FF;
+  --orange: #EB6F00;
+  --pink: #C96EBD;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -7,7 +19,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: #15131E;
+  background: var( --new-background );
 }
 
 #challenge {
@@ -35,19 +47,19 @@ body {
   border-radius: 50%;
 }
 
-.yellow { background: #F9C22E; }
-.green  { background: #00CC66; }
-.red    { background: #F15946; }
+.yellow { background: var( --tuscan-sun ); }
+.green  { background: var( --emerald ); }
+.red    { background: var( --tomato ); }
 
 .slash {
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
 }
 
 #question {
   margin: 0;
-  color: #00CC66;
+  color: var( --emerald );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 1.3;
@@ -64,7 +76,7 @@ body {
   border-image-slice: 12 fill;
   image-rendering: pixelated;
   padding: 0 8px;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;
@@ -103,7 +115,7 @@ body {
   padding-bottom: 11px;
   border: none;
   background: url(assets/button.png) no-repeat;
-  color: #15131E;
+  color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   letter-spacing: 1px;
@@ -200,7 +212,7 @@ body.solved #correct { display: flex; }
 
 #yay {
   margin: 0;
-  color: #00CC66;
+  color: var( --emerald );
   font-family: 'Jersey 25', system-ui;
   font-size: 48px;
 }
@@ -210,7 +222,7 @@ body.solved #correct { display: flex; }
   height: 65px;
   border: none;
   background: url(assets/button.png) no-repeat;
-  color: #15131E;
+  color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   cursor: pointer;
@@ -229,7 +241,7 @@ body.solved #correct { display: flex; }
 
 #oops.show { display: block; }
 
-.highlight { color: #F15946; }
+.highlight { color: var( --tomato ); }
 
 #code {
   padding: 16px;
@@ -286,7 +298,7 @@ body.solved #correct { display: flex; }
   border-image-source: url(assets/popup-msg.png);
   border-image-slice: 12 fill;
   image-rendering: pixelated;
-  color: #12263A;
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;

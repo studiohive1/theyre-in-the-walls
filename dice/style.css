@@ -1,4 +1,16 @@
-body { margin: 0; background: #15131E; overflow: hidden; }
+:root {
+  --tuscan-sun: #F9C22E;
+  --tomato: #F15946;
+  --emerald: #00CC66;
+  --deep-space: #12263A;
+  --violet-twilight: #5448C8;
+  --new-background: #15131E;
+  --deep-sky: #30C5FF;
+  --orange: #EB6F00;
+  --pink: #C96EBD;
+}
+
+body { margin: 0; background: var( --new-background ); overflow: hidden; }
 
 canvas {
   width: 100vw;
@@ -20,18 +32,18 @@ canvas {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  color: #15131E;
+  color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   letter-spacing: 1px;
   cursor: pointer;
-  background: url(assets/button-longer.png) no-repeat;
+  background: url(assets/button-yellow.png) no-repeat;
 }
 
 #action_btn:active {
   padding-bottom: 0;
   padding-top: 9px;
-  background-image: url(assets/button-longer-pressed.png);
+  background-image: url(assets/button-yellow-pressed.png);
 }
 
 #card {
@@ -42,7 +54,7 @@ canvas {
   width: 55vw;
   max-width: 260px;
   padding: 24px 0;
-  color: #12263A;
+  color: var( --deep-space );
   border: 4px solid #000000;
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
@@ -52,9 +64,9 @@ canvas {
 
 #card.show { display: block; }
 
-#card.qr    { background: #30C5FF; }
-#card.input { background: #EB6F00; }
-#card.ar    { background: #C96EBD; }
+#card.qr    { background: var( --deep-sky ); }
+#card.input { background: var( --orange ); }
+#card.ar    { background: var( --pink ); }
 
 #pause {
   width: 60px;
