@@ -112,11 +112,20 @@
   line-height: 0.66;
   letter-spacing: -0.019em;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .menu:active {
   padding-bottom: 0;
   padding-top: 9px;
+}
+
+.btn_icon {
+  height: 20px;
+  image-rendering: pixelated;
 }
 
 #resume {
