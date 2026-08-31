@@ -15,7 +15,7 @@
 
 body {
   margin: 0;
-  height: 100vh;
+  height: 100dvh;
   padding: 0 16px;
   box-sizing: border-box;
   display: flex;
@@ -229,7 +229,7 @@ body.solved #correct { display: flex; }
 
 #correct_henry {
   position: absolute;
-  bottom: -40px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   width: 180px;
