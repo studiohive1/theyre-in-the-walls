@@ -54,6 +54,17 @@ let done = false;
 let right_answer = '';
 let chal_id = '';
 
+const henrys = [
+  'assets/henry-correct.gif',
+  'assets/henry-correct-2.gif',
+  'assets/henry-correct-3.gif'
+];
+
+function pick_henry() {
+  const n = Math.floor( Math.random() * henrys.length );
+  correct_henry.src = henrys[ n ];
+}
+
 submit.addEventListener( 'click', () => {
   play( click_sound );
   if ( done ) return;
@@ -70,6 +81,7 @@ submit.addEventListener( 'click', () => {
   if ( is_right ) {
     done = true;
     save_done( given );
+    pick_henry();
     document.body.classList.add( 'solved' );
   } else {
     save_try( given );

@@ -10,6 +10,7 @@
   --deep-sky: #30C5FF;
   --orange: #EB6F00;
   --pink: #C96EBD;
+  --white: #E1DFDF;
 }
 
 body {
@@ -204,20 +205,35 @@ body {
 
 #overlay.show { display: flex; }
 
-#correct { display: none; }
-
-body.solved #challenge,
-body.solved #help {
-  display: none;
-}
-body.solved #correct { display: flex; }
-
 #correct {
+  display: none;
   flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
+  position: relative;
+}
+
+body.solved #challenge,
+body.solved #help {
+  display: none;
+}
+
+body.solved #correct { display: flex; }
+
+#correct_cube {
+  width: 55%;
+  image-rendering: pixelated;
+}
+
+#correct_henry {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  image-rendering: pixelated;
 }
 
 #yay {
@@ -255,8 +271,8 @@ body.solved #correct { display: flex; }
 
 #code {
   padding: 16px;
-  background: #E1DFDF;
-  color: #12263A;
+  background: var( --white );
+  color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   text-align: center;
