@@ -74,8 +74,23 @@ body {
   background: no-repeat center / 60%;
 }
 
-#guide.right { background-image: url(assets/guide-right.png); }
-#guide.wrong { background-image: url(assets/guide-wrong.png); }
+#guide.right { background-image: url(assets/guide-right.gif); }
+#guide.wrong { background-image: url(assets/guide-wrong.gif); }
+
+#guide_msg {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  aspect-ratio: 100 / 26;
+  pointer-events: none;
+  image-rendering: pixelated;
+  background: no-repeat center / 100% 100%;
+}
+
+#guide.right ~ #guide_msg { background-image: url(assets/guide-right.png); }
+#guide.wrong ~ #guide_msg { background-image: url(assets/guide-wrong.png); }
 
 #pause {
   width: 60px;

@@ -14,9 +14,6 @@ let last_seen = '';
 let right_answer = '';
 let chal_id = '';
 
-const cam = document.getElementById( 'cam' );
-const guide = document.getElementById( 'guide' );
-
 console.log( 'loading model...' );
 
 tf.setBackend( 'cpu' ).then( () => {
