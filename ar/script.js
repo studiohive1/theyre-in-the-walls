@@ -177,7 +177,7 @@ function get_question() {
       const list = result.data;
       const one = list[ Math.floor( Math.random() * list.length ) ];
 
-      question.textContent = one.question;
+      question.innerHTML = mark( one.question );
       right_answer = one.answer;
       chal_id = one.challenge_id;
       hint_msg.textContent = one.hint;
@@ -186,3 +186,9 @@ function get_question() {
 }
 
 get_question();
+
+function mark( text ) {
+  return text
+    .replace( '[', '<span class="highlight">' )
+    .replace( ']', '</span>' );
+}

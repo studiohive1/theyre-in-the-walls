@@ -266,3 +266,5 @@ body.solved #correct { display: flex; }
   font-size: 24px;
   text-align: center;
 }
+
+.highlight { color: var( --tomato ); }
