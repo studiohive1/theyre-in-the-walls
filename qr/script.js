@@ -1,10 +1,14 @@
-navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-  .then( stream => {
-    cam.srcObject = stream;
-  })
-  .catch( err => {
-    guide.textContent = 'camera error: ' + err.name;
-  });
+if ( navigator.mediaDevices ) {
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+    .then( stream => {
+      cam.srcObject = stream;
+    })
+    .catch( err => {
+      console.log( 'camera error: ' + err.name );
+    });
+} else {
+  console.log( 'skipping camera hehe' );
+}
 
 const cam = document.getElementById( 'cam' );
 const guide = document.getElementById( 'guide' );
@@ -19,12 +23,24 @@ function play( sound ) {
   sound.play();
 }
 
+const henrys = [
+  'assets/henry-correct.gif',
+  'assets/henry-correct-2.gif',
+  'assets/henry-correct-3.gif'
+];
+
+function pick_henry() {
+  const n = Math.floor( Math.random() * henrys.length );
+  correct_henry.src = henrys[ n ];
+}
+
 submit.addEventListener( 'click', () => {
   play( click_sound );
   if ( done ) return;
   if ( is_right ) {
     done = true;
     save_done();
+    pick_henry();
     document.body.classList.add( 'solved' );
   } else {
     save_try();

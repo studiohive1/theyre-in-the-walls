@@ -15,7 +15,7 @@
 
 body {
   margin: 0;
-  height: 100vh;
+  height: 100dvh;
   padding: 0 16px;
   box-sizing: border-box;
   display: flex;
@@ -103,6 +103,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 24px;
+  position: relative;
 }
 
 body.solved #challenge,
@@ -112,6 +113,20 @@ body.solved #help {
 }
 
 body.solved #correct { display: flex; }
+
+#correct_cube {
+  width: 55%;
+  image-rendering: pixelated;
+}
+
+#correct_henry {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  image-rendering: pixelated;
+}
 
 #yay {
   margin: 0;
