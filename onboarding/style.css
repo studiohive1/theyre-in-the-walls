@@ -743,7 +743,7 @@ body {
 #sthelse.show { display: block; }
 
 #picked #progress {
-  width: 290px;
+  justify-content: center;
 }
 
 #picked_photo {
