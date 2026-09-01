@@ -43,13 +43,20 @@ pause.addEventListener( 'click', e => {
 
 let user_id = '';
 
+function make_tag() {
+  const num = Math.floor( Math.random() * 10000 );
+  return String( num ).padStart( 4, '0' );
+}
+
 thats_me.addEventListener( 'click', () => {
   play( click_sound );
   const typed = name_box.value.trim();
   if ( typed === '' ) return;
 
+  const tag = make_tag();
+
   db.from( 'users' )
-    .insert({ username: typed })
+    .insert({ username: typed, tag: tag })
     .select()
     .single()
     .then( result => {
@@ -66,6 +73,7 @@ thats_me.addEventListener( 'click', () => {
       if ( !user_id ) return;
       localStorage.setItem( 'user_id', user_id );
       localStorage.setItem( 'username', typed );
+      localStorage.setItem( 'tag', tag );
       username.textContent = name_box.value.trim().toUpperCase();
       card_name.textContent = name_box.value.trim();
       go_next();
@@ -183,3 +191,4 @@ function stop_sprite() {
   chal_card.classList.remove( 'show' );
   clearInterval( sprite_timer );
 }
+
