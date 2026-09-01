@@ -8,6 +8,8 @@
   --deep-sky: #30C5FF;
   --orange: #EB6F00;
   --pink: #C96EBD;
+  --white: #E1DFDF;
+  --empty: #44576A;
 }
 
 body {
@@ -689,9 +691,19 @@ body {
   letter-spacing: -0.5px;
 }
 
-#telecomm { background-image: url(assets/button-green.png); }
-#get_smart { background-image: url(assets/button-purple.png); }
-#school_house { background-image: url(assets/button-red.png); }
+#telecomm, #picked_name.telecomm {
+  background-image: url(assets/button-green.png);
+}
+
+#get_smart, #picked_name.get_smart {
+  background-image: url(assets/button-purple.png);
+  color: var( --tuscan-sun );
+}
+
+#school_house, #picked_name.school_house {
+  background-image: url(assets/button-red.png);
+  color: var( --white );
+}
 
 #picked_img {
   width: 100%;
