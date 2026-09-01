@@ -124,7 +124,7 @@ hmm.addEventListener( 'click', () => {
 
 got_it.addEventListener( 'click', () => {
   play( click_sound );
-  location.href = '../dice/';
+  go_next()
 });
 
 let rule_now = 0;

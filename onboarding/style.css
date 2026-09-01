@@ -175,6 +175,7 @@ body {
   color: var( --tuscan-sun );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
+  line-height: 1.07;
   text-align: center;
 }
 
@@ -629,3 +630,89 @@ body {
 }
 
 #chal_card.show { display: block; }
+
+.talk4 {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  width: 165px;
+  height: 102px;
+  background: url(assets/rules-3.gif) no-repeat center / 100%;
+  image-rendering: pixelated;
+  z-index: 0;
+}
+
+#p12 {
+  justify-content: flex-start;
+  padding: 155px 32px 0;
+  gap: 24px;
+}
+
+#p12 .textbox {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#exhibit_box {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px 16px;
+  border-style: solid;
+  border-width: 8px;
+  border-image-source: url(assets/purple-box.png);
+  border-image-slice: 8 fill;
+  image-rendering: pixelated;
+}
+
+#pick, #picked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.exhibit {
+  box-sizing: border-box;
+  width: 290px;
+  height: 54px;
+  padding-bottom: 9px;
+  border: none;
+  background: no-repeat center / 100% 100%;
+  color: var( --new-background );
+  font-family: 'Jersey 25', system-ui;
+  font-size: 24px;
+  line-height: 0.66;
+  letter-spacing: -0.5px;
+}
+
+#telecomm { background-image: url(assets/button-green.png); }
+#get_smart { background-image: url(assets/button-purple.png); }
+#school_house { background-image: url(assets/button-red.png); }
+
+#picked_img {
+  width: 100%;
+}
+
+#picked { display: none; }
+#lets_go { display: none; }
+
+#p12.picked #pick { display: none; }
+#p12.picked #picked { display: flex; }
+#p12.picked #lets_go { display: block; }
+
+.exhibit:active {
+  padding-bottom: 0;
+  padding-top: 9px;
+}
+
+#telecomm:active { background-image: url(assets/button-green-pressed.png); }
+#get_smart:active { background-image: url(assets/button-purple-pressed.png); }
+#school_house:active { background-image: url(assets/button-red-pressed.png); }
+
+#picked_name {
+  pointer-events: none;
+}
