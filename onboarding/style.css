@@ -21,7 +21,7 @@ body {
   overflow: hidden;
   font-family: 'Jersey 25', system-ui;
   line-height: 0.66;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.019em;
   image-rendering: pixelated;
 }
 
@@ -260,29 +260,48 @@ body {
   top: 62%;
   left: 50%;
   transform: translateX( -50% );
+  box-sizing: border-box;
   width: 350px;
-  height: 185px;
-  background: url(assets/popup-card.png) no-repeat;
+  padding: 16px;
+  border-style: solid;
+  border-width: 8px;
+  border-image-source: url(assets/popup-card.png);
+  border-image-slice: 8 fill;
   image-rendering: pixelated;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 #card_name {
-  position: absolute;
-  top: 28px;
-  left: 20px;
-  right: 20px;
+  box-sizing: border-box;
+  width: 100%;
   margin: 0;
+  border-style: solid;
+  border-width: 12px;
+  border-image-source: url(assets/answer-box.png);
+  border-image-slice: 12 fill;
+  image-rendering: pixelated;
   color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
+  text-align: center;
+}
+
+#card_note {
+  margin: 0;
+  color: var( --emerald );
+  font-family: 'Jersey 25', system-ui;
+  font-size: 20px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
   text-align: center;
 }
 
 #looks_good {
-  position: absolute;
-  bottom: 8%;
-  left: 50%;
-  transform: translateX(-50%);
   box-sizing: border-box;
   width: 290px;
   height: 54px;
@@ -293,7 +312,7 @@ body {
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
   line-height: 0.66;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.019em;
   text-align: center;
   cursor: pointer;
 }
