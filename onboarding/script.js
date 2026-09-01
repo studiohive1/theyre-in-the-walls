@@ -97,7 +97,7 @@ looks_good.addEventListener( 'click', () => {
 });
 
 for ( const btn of document.querySelectorAll( '.action' ) ) {
-  if ( btn.id === 'hmm' || btn.id === 'got_it' ) continue;
+  if ( btn.id === 'hmm' || btn.id === 'got_it' || btn.id === 'lets_go' ) continue;
   btn.addEventListener( 'click', () => {
     play( click_sound );
     go_next();
@@ -194,3 +194,21 @@ function stop_sprite() {
   clearInterval( sprite_timer );
 }
 
+let exhibit_now = '';
+
+for ( const btn of document.querySelectorAll( '#pick .exhibit' ) ) {
+  btn.addEventListener( 'click', () => {
+    play( click_sound );
+
+    if ( btn.id !== 'telecomm' ) {
+      exhibit_talk.textContent = 'HMMM... Choose something else hehehehhe';
+      return;
+    }
+
+    exhibit_now = btn.id;
+    picked_name.textContent = btn.textContent;
+    picked_name.className = 'exhibit ' + btn.id;
+    exhibit_talk.innerHTML = 'Great! Looks like <span class="highlight">Morph</span> was working here';
+    p12.classList.add( 'picked' );
+  });
+}
