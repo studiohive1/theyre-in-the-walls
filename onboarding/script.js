@@ -75,7 +75,7 @@ thats_me.addEventListener( 'click', () => {
       localStorage.setItem( 'username', typed );
       localStorage.setItem( 'tag', tag );
       username.textContent = name_box.value.trim().toUpperCase();
-      card_name.textContent = name_box.value.trim();
+      card_name.textContent = typed + '#' + tag;
       go_next();
     });
 }); 
