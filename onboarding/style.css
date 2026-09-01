@@ -770,3 +770,24 @@ body {
   from { opacity: 1; }
   to   { opacity: 0; }
 }
+
+#p13 {
+  justify-content: flex-start;
+  padding-top: calc(57dvh + 40px);
+}
+
+.ready {
+  position: absolute;
+  bottom: calc(43dvh - 20px);
+  left: 50%;
+  transform: translateX( -50% );
+  width: 192px;
+  height: 192px;
+  background: url(assets/lets-go.png) 0 0;
+  background-size: 3264px 192px;
+  animation: ready 2.839s steps(17) infinite;
+}
+
+@keyframes ready {
+  to { background-position: -3264px 0; }
+}

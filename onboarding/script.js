@@ -102,7 +102,7 @@ looks_good.addEventListener( 'click', () => {
 });
 
 for ( const btn of document.querySelectorAll( '.action' ) ) {
-  if ( btn.id === 'hmm' || btn.id === 'got_it' || btn.id === 'lets_go' ) continue;
+  if ( btn.id === 'hmm' || btn.id === 'got_it' || btn.id === 'lets_go' || btn.id === 'lets_go2' ) continue;
   btn.addEventListener( 'click', () => {
     play( click_sound );
     go_next();
@@ -223,4 +223,15 @@ for ( const btn of document.querySelectorAll( '#pick .exhibit' ) ) {
 
 sthelse.addEventListener( 'click', () => {
   sthelse.classList.remove( 'show' );
+});
+
+lets_go.addEventListener( 'click', () => {
+  play( click_sound );
+  localStorage.setItem( 'exhibit', exhibit_now );
+  go_next();
+});
+
+lets_go2.addEventListener( 'click', () => {
+  play( click_sound );
+  location.href = '../dice/';
 });
