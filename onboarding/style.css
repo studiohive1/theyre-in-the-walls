@@ -635,7 +635,7 @@ body {
 
 .talk4 {
   position: absolute;
-  top: 70px;
+  top: 55px;
   right: 40px;
   width: 165px;
   height: 102px;
@@ -646,7 +646,7 @@ body {
 
 #p12 {
   justify-content: flex-start;
-  padding: 155px 32px 0;
+  padding: 157px 32px 0;
   gap: 24px;
 }
 

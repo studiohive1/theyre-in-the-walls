@@ -214,6 +214,7 @@ for ( const btn of document.querySelectorAll( '#pick .exhibit' ) ) {
     picked_name.textContent = btn.textContent;
     picked_name.className = 'exhibit ' + btn.id;
     exhibit_talk.innerHTML = 'Great! Looks like <span class="highlight">Morph</span> was working here';
+    fill_progress( 0 );
     p12.classList.add( 'picked' );
   });
 }
