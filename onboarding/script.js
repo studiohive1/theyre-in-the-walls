@@ -97,7 +97,7 @@ looks_good.addEventListener( 'click', () => {
 });
 
 for ( const btn of document.querySelectorAll( '.action' ) ) {
-  if ( btn.id === 'hmm' ) continue;
+  if ( btn.id === 'hmm' || btn.id === 'got_it' ) continue;
   btn.addEventListener( 'click', () => {
     play( click_sound );
     go_next();
@@ -120,6 +120,11 @@ hmm.addEventListener( 'click', () => {
   setTimeout( go_next, 3504 );
 
   setTimeout( go_next, 5504 );
+});
+
+got_it.addEventListener( 'click', () => {
+  play( click_sound );
+  location.href = '../dice/';
 });
 
 let rule_now = 0;
@@ -147,10 +152,7 @@ left.addEventListener( 'click', () => {
 
 right.addEventListener( 'click', () => {
   play( click_sound );
-  if ( rule_now >= 3 ) {
-    location.href = '../dice/';
-    return;
-  }
+  if ( rule_now >= 3 ) return;
   rule_now = rule_now + 1;
   show_rule();
 });

@@ -516,6 +516,18 @@ body {
   to   { background-position: -2880px 0; }
 }
 
+.talk3 {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX( -50% );
+  width: 123px;
+  height: 117px;
+  background: url(assets/rules-2.gif) no-repeat center / 100%;
+  image-rendering: pixelated;
+  z-index: 0;
+}
+
 .locked .cube_img {
   opacity: 0.46;
 }
@@ -523,10 +535,15 @@ body {
 .panel {
   position: relative;
   z-index: 1;
-  width: 100%;
+  height: 58dvh;
+  width: auto;
   aspect-ratio: 350 / 500;
   background: url(assets/mechanic.png) no-repeat center / 100% 100%;
   image-rendering: pixelated;
+}
+
+#got_it {
+  margin: 38px 0 auto;
 }
 
 .window {
@@ -548,6 +565,13 @@ body {
   image-rendering: pixelated;
   align-self: flex-start;
 }
+
+#p11 {
+  justify-content: flex-start;
+  padding-top: 157px;
+  gap: 0;
+}
+
 
 #p11 .container {
   position: absolute;
