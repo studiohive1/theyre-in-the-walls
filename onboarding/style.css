@@ -741,3 +741,26 @@ body {
 }
 
 #sthelse.show { display: block; }
+
+#picked #progress {
+  width: 290px;
+}
+
+#picked_photo {
+  position: relative;
+  width: 100%;
+}
+
+#picked_img {
+  display: block;
+  width: 100%;
+  image-rendering: auto;
+}
+
+#picked_eng {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX( -50% );
+  width: 164px;
+}

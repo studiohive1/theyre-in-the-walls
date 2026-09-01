@@ -213,6 +213,8 @@ for ( const btn of document.querySelectorAll( '#pick .exhibit' ) ) {
     exhibit_now = btn.id;
     picked_name.textContent = btn.textContent;
     picked_name.className = 'exhibit ' + btn.id;
+    picked_img.src = 'assets/' + btn.id + '.png';
+    picked_eng.src = 'assets/' + btn.id + '-eng.png';
     exhibit_talk.innerHTML = 'Great! Looks like <span class="highlight">Morph</span> was working here';
     fill_progress( 0 );
     p12.classList.add( 'picked' );
