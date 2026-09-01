@@ -33,6 +33,11 @@ p2.addEventListener( 'click', go_next );
 back.addEventListener( 'click', e => {
   e.stopPropagation();
   play( click_sound );
+  if ( p12.classList.contains( 'picked' ) ) {
+    p12.classList.remove( 'picked' );
+    exhibit_talk.textContent = 'If you pick an exhibit, maybe we can see if any of my friends was working there';
+    return;
+  }
   go_back();
 });
 
@@ -124,7 +129,7 @@ hmm.addEventListener( 'click', () => {
 
 got_it.addEventListener( 'click', () => {
   play( click_sound );
-  go_next()
+  go_next();
 });
 
 let rule_now = 0;
@@ -201,7 +206,7 @@ for ( const btn of document.querySelectorAll( '#pick .exhibit' ) ) {
     play( click_sound );
 
     if ( btn.id !== 'telecomm' ) {
-      exhibit_talk.textContent = 'HMMM... Choose something else hehehehhe';
+      sthelse.classList.add( 'show' );
       return;
     }
 
@@ -212,3 +217,7 @@ for ( const btn of document.querySelectorAll( '#pick .exhibit' ) ) {
     p12.classList.add( 'picked' );
   });
 }
+
+sthelse.addEventListener( 'click', () => {
+  sthelse.classList.remove( 'show' );
+});
