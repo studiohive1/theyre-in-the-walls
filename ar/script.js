@@ -13,7 +13,7 @@ if ( navigator.mediaDevices ) {
 let model;
 let is_right = false;
 let done = false;
-let ok_time = 0;
+let locked = false;
 let last_seen = '';
 let right_answer = '';
 let chal_id = '';
@@ -32,6 +32,18 @@ tf.setBackend( 'cpu' ).then( () => {
 const frame = document.createElement( 'canvas' );
 frame.width = 224;
 frame.height = 224;
+
+const photo_cam = photo.getContext( '2d' );
+
+function take_photo() {
+  photo.width = cam.videoWidth;
+  photo.height = cam.videoHeight;
+  photo_cam.drawImage( cam, 0, 0, photo.width, photo.height );
+  locked = true;
+  is_right = true;
+  view.classList.add( 'locked' );
+  guide.className = 'right';
+}
 
 setInterval( () => {
   if ( !model ) return;
