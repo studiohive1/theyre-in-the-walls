@@ -46,6 +46,7 @@ function take_photo() {
 }
 
 setInterval( () => {
+  if ( locked ) return;
   if ( !model ) return;
   if ( !cam.videoWidth ) return;
 
@@ -58,14 +59,14 @@ setInterval( () => {
         chosen = one;
       }
     }
-
-    if ( chosen.className === right_answer && chosen.probability > 0.8 ) {
-      ok_time = Date.now();
-    }
     last_seen = chosen.className;
 
-    is_right = Date.now() - ok_time < 3000;
-    guide.className = is_right ? 'right' : 'wrong';
+    if ( chosen.className === right_answer && chosen.probability > 0.8 ) {
+      take_photo();
+    } else {
+      is_right = false;
+      guide.className = 'wrong';
+    }
 
   }).catch( err => {
     console.log( 'predict error: ' + err.message );
