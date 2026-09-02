@@ -98,11 +98,11 @@ body {
   top: 32%;
   left: 50%;
   transform: translateX(-50%);
-  width: 40%;
-  aspect-ratio: 100 / 26;
+  height: 37px;
+  width: 300px;
   pointer-events: none;
   image-rendering: pixelated;
-  background: no-repeat center / 100% 100%;
+  background: no-repeat center / contain;
 }
 
 #guide.right ~ #guide_msg { background-image: url(assets/guide-right.png); }
