@@ -51,22 +51,13 @@ canvas {
   top: 30%;
   left: 50%;
   transform: translateX( -50% );
-  width: 55vw;
-  max-width: 260px;
-  padding: 24px 0;
-  color: var( --deep-space );
-  border: 4px solid #000000;
-  font-family: 'Jersey 25', system-ui;
-  font-size: 24px;
-  text-align: center;
+  height: 102px;
+  image-rendering: pixelated;
+  cursor: pointer;
   display: none;
 }
 
 #card.show { display: block; }
-
-#card.qr    { background: var( --deep-sky ); }
-#card.input { background: var( --orange ); }
-#card.ar    { background: var( --pink ); }
 
 #pause {
   width: 60px;

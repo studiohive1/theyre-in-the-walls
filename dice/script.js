@@ -155,8 +155,8 @@ function animate( time ) {
       const pick = get_challenge();
       if ( pick ) {
         done = true;
-        card.textContent = pick.label;
-        card.className = 'show ' + pick.name;
+        card.src = 'assets/' + pick.name + '-card.png';
+        card.className = 'show';
         action_btn.textContent = 'CHALLENGE ACCEPTED!';
       }
     }
