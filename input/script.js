@@ -186,7 +186,7 @@ count_progress();
 
 function get_question() {
   db.from( 'challenges' )
-    .select( 'question, body, answer, challenge_id, hint, hint_url' )
+    .select( 'question, body, answer, challenge_id, hint, hint_url, hint_gif' )
     .eq( 'type', 'input' )
     .then( result => {
       const list = result.data;
@@ -194,6 +194,7 @@ function get_question() {
       
       hint_msg.textContent = one.hint;
       hint_img.src = one.hint_url;
+      if ( one.hint_gif ) hint_henry.src = one.hint_gif;
 
       question.innerHTML = mark( one.question );
       if ( one.challenge_id === 'morse' ) {

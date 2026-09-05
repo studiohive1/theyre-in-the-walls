@@ -183,7 +183,7 @@ setInterval( () => {
 
 function get_question() {
   db.from( 'challenges' )
-    .select( 'question, answer, challenge_id, hint, hint_url' )
+    .select( 'question, answer, challenge_id, hint, hint_url, hint_gif' )
     .eq( 'type', 'qr' )
     .then( result => {
       const list = result.data;
@@ -194,6 +194,7 @@ function get_question() {
       chal_id = one.challenge_id;
       hint_msg.textContent = one.hint;
       hint_img.src = one.hint_url;
+      if ( one.hint_gif ) hint_henry.src = 'assets/' + one.hint_gif;
     });
 }
 

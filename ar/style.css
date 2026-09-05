@@ -335,6 +335,8 @@ body.solved #correct { display: flex; }
 
 #hint_henry {
   width: 130px;
+  height: 137px;
+  object-fit: contain;
   flex-shrink: 0;
   image-rendering: pixelated;
 }
