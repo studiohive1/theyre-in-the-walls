@@ -63,24 +63,24 @@ body {
   width: 60px;
   height: 62px;
   border: none;
-  background: url(assets/button-back.png) no-repeat;
+  background: url(assets/button-back.svg) no-repeat;
   cursor: pointer;
 }
 
 #back:active {
-  background-image: url(assets/button-back-pressed.png);
+  background-image: url(assets/button-back-pressed.svg);
 }
 
 #pause {
   width: 60px;
   height: 62px;
   border: none;
-  background: url(assets/button-pause.png) no-repeat;
+  background: url(assets/button-pause.svg) no-repeat;
   cursor: pointer;
 }
 
 #pause:active {
-  background-image: url(assets/button-pause-pressed.png);
+  background-image: url(assets/button-pause-pressed.svg);
 }
 
 .step {
@@ -310,7 +310,7 @@ body {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  background: url(assets/button-yellow.png) no-repeat center / 100% 100%;
+  background: url(assets/button-yellow.svg) no-repeat center / 100% 100%;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
@@ -321,7 +321,7 @@ body {
 }
 
 #looks_good:active {
-  background-image: url(assets/button-yellow-pressed.png);
+  background-image: url(assets/button-yellow-pressed.svg);
   padding-bottom: 0;
   padding-top: 9px;
 }
@@ -344,7 +344,7 @@ body {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  background: url(assets/button-yellow.png) no-repeat center / 100% 100%;
+  background: url(assets/button-yellow.svg) no-repeat center / 100% 100%;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
@@ -356,7 +356,7 @@ body {
 }
 
 .action:active {
-  background-image: url(assets/button-yellow-pressed.png);
+  background-image: url(assets/button-yellow-pressed.svg);
   padding-bottom: 0;
   padding-top: 9px;
 }
@@ -599,12 +599,12 @@ body {
   width: 60px;
   height: 62px;
   border: none;
-  background: url(assets/button-back.png) no-repeat;
+  background: url(assets/button-back.svg) no-repeat;
   cursor: pointer;
 }
 
 #left:active, #right:active {
-  background-image: url(assets/button-back-pressed.png);
+  background-image: url(assets/button-back-pressed.svg);
 }
 
 #right { transform: scaleX(-1); }
@@ -693,16 +693,16 @@ body {
 }
 
 #telecomm, #picked_name.telecomm {
-  background-image: url(assets/button-green.png);
+  background-image: url(assets/button-green.svg);
 }
 
 #get_smart, #picked_name.get_smart {
-  background-image: url(assets/button-purple.png);
+  background-image: url(assets/button-purple.svg);
   color: var( --tuscan-sun );
 }
 
 #school_house, #picked_name.school_house {
-  background-image: url(assets/button-red.png);
+  background-image: url(assets/button-red.svg);
   color: var( --white );
 }
 
@@ -722,9 +722,9 @@ body {
   padding-top: 9px;
 }
 
-#telecomm:active { background-image: url(assets/button-green-pressed.png); }
-#get_smart:active { background-image: url(assets/button-purple-pressed.png); }
-#school_house:active { background-image: url(assets/button-red-pressed.png); }
+#telecomm:active { background-image: url(assets/button-green-pressed.svg); }
+#get_smart:active { background-image: url(assets/button-purple-pressed.svg); }
+#school_house:active { background-image: url(assets/button-red-pressed.svg); }
 
 #picked_name {
   pointer-events: none;
