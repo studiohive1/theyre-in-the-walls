@@ -341,6 +341,47 @@ body.solved #correct { display: flex; }
   text-align: center;
 }
 
+#hint_talk {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+#hint_henry {
+  width: 130px;
+  height: 137px;
+  object-fit: contain;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+#hint_top {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hint_title {
+  width: 135px;
+  image-rendering: pixelated;
+}
+
+#hint_close {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY( -50% );
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: url(assets/button-close.png) no-repeat center;
+  background-size: 29px;
+  cursor: pointer;
+}
+
 #choices {
   display: none;
   flex-direction: column;
