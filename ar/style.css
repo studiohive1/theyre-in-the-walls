@@ -321,6 +321,8 @@ body.solved #correct { display: flex; }
   color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
   text-align: center;
 }
 
@@ -335,6 +337,32 @@ body.solved #correct { display: flex; }
   width: 130px;
   flex-shrink: 0;
   image-rendering: pixelated;
+}
+
+#hint_top {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hint_title {
+  width: 135px;
+  image-rendering: pixelated;
+}
+
+#hint_close {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY( -50% );
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: url(assets/button-close.png) no-repeat center;
+  background-size: 29px;
+  cursor: pointer;
 }
 
 .highlight { color: var( --tomato ); }

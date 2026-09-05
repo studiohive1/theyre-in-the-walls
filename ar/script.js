@@ -119,7 +119,13 @@ hint.addEventListener( 'click', () => {
   hint_box.className = 'show';
 });
 
-hint_box.addEventListener( 'click', () => {
+hint_close.addEventListener( 'click', () => {
+  play( click_sound );
+  hint_box.className = '';
+});
+
+hint_box.addEventListener( 'click', e => {
+  if ( e.target !== hint_box ) return;
   play( click_sound );
   hint_box.className = '';
 });
