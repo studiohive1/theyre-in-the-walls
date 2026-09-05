@@ -90,7 +90,7 @@
   height: 40px;
   margin: 0;
   padding-top: 16px;
-  background: url(assets/button-yellow-pressed.png) no-repeat center / 100% 100%;
+  background: url(assets/button-yellow-pressed.svg) no-repeat center / 100% 100%;
   color: var( --deep-space );
   font-family: 'Jersey 25', system-ui;
   font-size: 21.73px;
@@ -129,25 +129,25 @@
 }
 
 #resume {
-  background-image: url(assets/button-red.png);
+  background-image: url(assets/button-red.svg);
   color: var( --white );
 }
 
-#resume:active { background-image: url(assets/button-red-pressed.png); }
+#resume:active { background-image: url(assets/button-red-pressed.svg); }
 
 #engineers {
-  background-image: url(assets/button-green.png);
+  background-image: url(assets/button-green.svg);
   color: var( --new-background );
 }
 
-#engineers:active { background-image: url(assets/button-green-pressed.png); }
+#engineers:active { background-image: url(assets/button-green-pressed.svg); }
 
 #switch_exhibit {
-  background-image: url(assets/button-purple.png);
+  background-image: url(assets/button-purple.svg);
   color: var( --tuscan-sun );
 }
 
-#switch_exhibit:active { background-image: url(assets/button-purple-pressed.png); }
+#switch_exhibit:active { background-image: url(assets/button-purple-pressed.svg); }
 
 #sound_box {
   display: flex;
