@@ -324,4 +324,17 @@ body.solved #correct { display: flex; }
   text-align: center;
 }
 
+#hint_talk {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+#hint_henry {
+  width: 130px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
 .highlight { color: var( --tomato ); }
