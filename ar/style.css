@@ -112,12 +112,12 @@ body {
   width: 60px;
   height: 62px;
   border: none;
-  background: url(assets/button-pause.png) no-repeat;
+  background: url(assets/button-pause.svg) no-repeat;
   cursor: pointer;
 }
 
 #pause:active {
-  background-image: url(assets/button-pause-pressed.png);
+  background-image: url(assets/button-pause-pressed.svg);
 }
 
 #bar {
@@ -158,12 +158,12 @@ body {
   width: 60px;
   height: 62px;
   border: none;
-  background: url(assets/button-reroll.png) no-repeat;
+  background: url(assets/button-reroll.svg) no-repeat;
   cursor: pointer;
 }
 
 #reroll:active {
-  background-image: url(assets/button-reroll-pressed.png);
+  background-image: url(assets/button-reroll-pressed.svg);
 }
 
 #hint {

@@ -57,10 +57,10 @@ body {
   cursor: pointer;
 }
 
-#back { background: url(assets/button-back.png) no-repeat; }
-#back:active { background-image: url(assets/button-back-pressed.png); }
-#pause { background: url(assets/button-pause.png) no-repeat; }
-#pause:active { background-image: url(assets/button-pause-pressed.png); }
+#back { background: url(assets/button-back.svg) no-repeat; }
+#back:active { background-image: url(assets/button-back-pressed.svg); }
+#pause { background: url(assets/button-pause.svg) no-repeat; }
+#pause:active { background-image: url(assets/button-pause-pressed.svg); }
 
 .henry {
   position: absolute;
@@ -133,7 +133,7 @@ body {
   height: 54px;
   padding-bottom: 9px;
   border: none;
-  background: url(assets/button-yellow.png) no-repeat center / 100% 100%;
+  background: url(assets/button-yellow.svg) no-repeat center / 100% 100%;
   color: var( --new-background );
   font-family: 'Jersey 25', system-ui;
   font-size: 24px;
@@ -144,7 +144,7 @@ body {
 }
 
 #choose:active {
-  background-image: url(assets/button-yellow-pressed.png);
+  background-image: url(assets/button-yellow-pressed.svg);
   padding-bottom: 0;
   padding-top: 9px;
 }
