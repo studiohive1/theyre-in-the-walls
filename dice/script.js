@@ -13,6 +13,8 @@ document.body.appendChild( renderer.domElement )
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const loader = new THREE.TextureLoader();
 
+const dots = document.querySelectorAll( '#reroll_count .hex' );
+
 function face( name ) {
   const pic = loader.load( 'assets/cube-face-' + name + '-v4-locked.png' );
   pic.magFilter = THREE.NearestFilter;
@@ -319,3 +321,22 @@ db.from( 'progress' )
       }
     }
 });
+
+const is_reroll = new URLSearchParams( location.search ).get( 'reroll' );
+
+function show_rerolls() {
+  const used = Number( localStorage.getItem( 'rerolls' ) || 0 );
+  for ( let i = 0; i < dots.length; i++ ) {
+    if ( i < 3 - used ) {
+      dots[i].classList.add( 'left' );
+    } else {
+      dots[i].classList.remove( 'left' );
+    }
+  }
+}
+
+if ( is_reroll ) {
+  document.body.classList.add( 'reroll' );
+  action_btn.textContent = 'RE-ROLL!';
+  show_rerolls();
+}

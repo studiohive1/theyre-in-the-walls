@@ -106,3 +106,49 @@ canvas {
   bottom: 0;
   background: url(assets/pixel-effect-bottom.png) repeat-x;
 }
+
+#reroll_bar {
+  display: none;
+  position: fixed;
+  top: 120px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  box-sizing: border-box;
+  height: 97px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-style: solid;
+  border-width: 8px;
+  border-image-source: url(assets/reroll-box.png);
+  border-image-slice: 8 fill;
+  image-rendering: pixelated;
+}
+
+body.reroll #reroll_bar { display: flex; }
+
+#reroll_count {
+  display: flex;
+  gap: 4px;
+}
+
+#reroll_count .hex {
+  width: 18px;
+  height: 16px;
+  background: #44576a;
+}
+
+#reroll_count .hex.left {
+  background: #005EEB;
+}
+
+#reroll_title {
+  margin: 0;
+  color: #005EEB;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 36px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
+}

@@ -127,7 +127,7 @@ popup_close.addEventListener( 'click', () => {
 
 popup_yes.addEventListener( 'click', () => {
   play( click_sound );
-  location.href = '../dice/';
+  location.href = '../dice/?reroll=1';
 });
 
 hint.addEventListener( 'click', () => {

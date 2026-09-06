@@ -46,7 +46,7 @@ submit.addEventListener( 'click', () => {
 
 next.addEventListener( 'click', () => {
   play( click_sound );
-  location.href = '../dice/';
+  location.href = '../dice/?reroll=1';
 });
 
 pause.addEventListener( 'click', () => {
