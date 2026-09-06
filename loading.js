@@ -43,11 +43,7 @@ if ( card_guid ) {
 }
 
 start.addEventListener( 'click', () => {
-  if ( return_user ) {
-    location.href = '../welcome/';
-  } else {
-    location.href = '../onboarding/' + location.search;
-  }
+  location.href = 'onboarding/' + location.search;
 });
 
 title.addEventListener( 'click', () => {
