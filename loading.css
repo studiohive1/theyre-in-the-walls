@@ -28,9 +28,56 @@ body {
 }
 
 .titw {
-  width: 60%;
+  width: 451px;
+  max-width: 115vw;
   image-rendering: pixelated;
   animation: float 2s ease-in-out infinite;
+  transition: width 0.4s ease;
+}
+
+#title.ready .titw {
+  width: 405px;
+}
+
+.titw_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.bottom {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX( -50% );
+  margin-top: -20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+#title.ready .bottom {
+  display: flex;
+}
+
+#played {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #F9C22E;
+  font-family: 'Jersey 25', system-ui;
+  font-size: 15px;
+  line-height: 1.07;
+  letter-spacing: -0.019em;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .hive {
@@ -96,10 +143,6 @@ body {
 .logo, .hive, .titw, #start {
   position: relative;
   z-index: 1;
-}
-
-#title {
-  gap: 60px;
 }
 
 .step {

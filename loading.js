@@ -49,3 +49,11 @@ start.addEventListener( 'click', () => {
     location.href = '../onboarding/' + location.search;
   }
 });
+
+title.addEventListener( 'click', () => {
+  title.classList.add( 'ready' );
+});
+
+played.addEventListener( 'click', () => {
+  location.href = 'welcome/';
+});
