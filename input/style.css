@@ -271,12 +271,39 @@ body.solved #correct { display: flex; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6) url(assets/popup-oops.png) no-repeat center / 200px 76px;
-  image-rendering: pixelated;
+  background: rgba(0, 0, 0, 0.6);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   display: none;
 }
 
-#oops.show { display: block; }
+#oops.show { display: flex; }
+
+#oops_cube {
+  width: 200px;
+  image-rendering: pixelated;
+}
+
+#oops_msg {
+  width: 200px;
+  image-rendering: pixelated;
+}
+
+@keyframes cube_shake {
+  0%   { transform: translateX( 0 ); }
+  15%  { transform: translateX( -10px ); }
+  30%  { transform: translateX( 10px ); }
+  45%  { transform: translateX( -7px ); }
+  60%  { transform: translateX( 7px ); }
+  75%  { transform: translateX( -3px ); }
+  100% { transform: translateX( 0 ); }
+}
+
+#oops.show #oops_cube {
+  animation: cube_shake 0.5s ease-in-out;
+}
 
 .highlight { color: var( --tomato ); }
 
