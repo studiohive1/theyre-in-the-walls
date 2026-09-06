@@ -14,6 +14,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../script.js" defer></script>
   <script src="script.js" defer></script>
+  <link rel="stylesheet" href="../pause/pause.css">
+  <script src="../pause/pause.js" defer></script>
 </head>
 <body>
   <header id="bar">
@@ -61,6 +63,40 @@
     <div id="hint_talk">
       <img id="hint_henry" src="assets/henry-hint-map.gif" alt="">
       <p id="hint_msg"></p>
+    </div>
+  </div>
+    <div id="pause_screen">
+    <div id="pause_card">
+      <p id="pause_title">PAUSE</p>
+      <button id="pause_close"></button>
+      <div id="you_are_in">
+        <p class="cur_label">YOU ARE IN:</p>
+        <p id="cur_exhibit">TELECOMMUNICATIONS</p>
+      </div>
+      <button class="menu" id="resume">
+        <img class="btn_icon" src="../pause/assets/resume.png" alt="">RESUME
+      </button>
+      <button class="menu" id="engineers">
+        <img class="btn_icon" src="../pause/assets/silhouette.png" alt="">ENGINEERS FOUND
+      </button>
+      <button class="menu" id="switch_exhibit">SWITCH EXHIBIT</button>
+      <div id="sound_box">
+        <div class="sound_each">
+          <div class="each_icon" id="icon_sound"></div>
+          <p class="each_label">SOUND</p>
+          <input class="each_slider" id="slider_sound" type="range" min="0" max="100" value="100">
+        </div>
+        <div class="sound_each">
+          <div class="each_icon" id="icon_dialogue"></div>
+          <p class="each_label">DIALOGUE</p>
+          <input class="each_slider" id="slider_dialogue" type="range" min="0" max="100" value="100">
+        </div>
+        <div class="sound_each">
+          <div class="each_icon" id="icon_music"></div>
+          <p class="each_label">MUSIC</p>
+          <input class="each_slider" id="slider_music" type="range" min="0" max="100" value="100">
+        </div>
+      </div>
     </div>
   </div>
 </body>
