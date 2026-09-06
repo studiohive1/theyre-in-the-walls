@@ -194,7 +194,7 @@ function get_question() {
       chal_id = one.challenge_id;
       hint_msg.textContent = one.hint;
       hint_img.src = one.hint_url;
-      if ( one.hint_gif ) hint_henry.src = 'assets/' + one.hint_gif;
+      if ( one.hint_gif ) hint_henry.src = one.hint_gif;
     });
 }
 
