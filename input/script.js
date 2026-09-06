@@ -13,6 +13,18 @@ const colours = {
   R: 'red'
 };
 
+let oops_timer = null;
+
+function show_oops() {
+  oops.className = 'show';
+  oops_timer = setTimeout( close_oops, 3000 );
+}
+
+function close_oops() {
+  clearTimeout( oops_timer );
+  oops.className = '';
+}
+
 function draw_code( text ) {
   code.innerHTML = '';
   for ( const letter of text ) {
@@ -85,13 +97,13 @@ submit.addEventListener( 'click', () => {
     document.body.classList.add( 'solved' );
   } else {
     save_try( given );
-    oops.className = 'show';
+    show_oops();
   }
 });
 
 oops.addEventListener( 'click', () => {
   play( click_sound );
-  oops.className = '';
+  close_oops();
 });
 
 next.addEventListener( 'click', () => {

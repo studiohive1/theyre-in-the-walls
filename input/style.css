@@ -272,32 +272,52 @@ body.solved #correct { display: flex; }
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
   display: none;
 }
 
-#oops.show { display: flex; }
+#oops.show { display: block; }
 
 #oops_cube {
-  width: 200px;
+  position: absolute;
+  top: 34%;
+  left: calc( 50% - 87px );
+  width: 174px;
+  image-rendering: pixelated;
+}
+
+#oops_bottom {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+}
+
+#oops_henry {
+  display: block;
+  width: 110px;
+  margin: 0 auto 0px;
+  transform: translateX( -10px );
   image-rendering: pixelated;
 }
 
 #oops_msg {
-  width: 200px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
   image-rendering: pixelated;
 }
 
 @keyframes cube_shake {
   0%   { transform: translateX( 0 ); }
-  15%  { transform: translateX( -10px ); }
-  30%  { transform: translateX( 10px ); }
-  45%  { transform: translateX( -7px ); }
+  10%  { transform: translateX( -12px ); }
+  20%  { transform: translateX( 12px ); }
+  30%  { transform: translateX( -10px ); }
+  40%  { transform: translateX( 10px ); }
+  50%  { transform: translateX( -7px ); }
   60%  { transform: translateX( 7px ); }
-  75%  { transform: translateX( -3px ); }
+  70%  { transform: translateX( -5px ); }
+  80%  { transform: translateX( 5px ); }
+  90%  { transform: translateX( -2px ); }
   100% { transform: translateX( 0 ); }
 }
 
