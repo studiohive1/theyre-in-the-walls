@@ -3,6 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <script>
       AFRAME.registerComponent('sprite', {
         schema: {
@@ -40,10 +42,11 @@
     <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="engineer.png" sprite="frames: 17; speed: 6" position="0 0.1 0.1" width="0.5" height="0.5" transparent="true"></a-plane>
+        <a-plane src="samuel-morse.png" sprite="frames: 22; speed: 6" position="0 0.1 0.1" width="0.5" height="0.5" transparent="true"></a-plane>
         <a-plane src="sparkle.png" sprite="frames: 9; speed: 6" position="-0.3 0.5 0.11" width="0.25" height="0.25" transparent="true"></a-plane>
         <a-plane src="sparkle2.png" sprite="frames: 11; speed: 5" position="0.3 0.3 0.12" width="0.25" height="0.25" transparent="true"></a-plane>
       </a-entity>
     </a-scene>
+    <div id="frame"></div>
   </body>
 </html>
