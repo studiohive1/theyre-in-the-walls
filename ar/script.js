@@ -202,11 +202,25 @@ function count_progress() {
 count_progress();
 
 function get_question() {
+  db.from( 'progress' )
+    .select( 'challenge_id' )
+    .eq( 'user_id', user_id )
+    .eq( 'exhibit_id', 'telecomm' )
+    .eq( 'completed', true )
+    .then( result => {
+      const done_ids = result.data.map( row => row.challenge_id );
+      pick_question( done_ids );
+    });
+}
+
+function pick_question( done_ids ) {
   db.from( 'challenges' )
     .select( 'question, answer, challenge_id, hint, hint_url, hint_gif' )
     .eq( 'type', 'ar' )
     .then( result => {
-      const list = result.data;
+      let list = result.data.filter( row => !done_ids.includes( row.challenge_id ) );
+      if ( list.length === 0 ) list = result.data;
+
       const one = list[ Math.floor( Math.random() * list.length ) ];
 
       question.innerHTML = mark( one.question );
@@ -214,7 +228,7 @@ function get_question() {
       chal_id = one.challenge_id;
       hint_msg.textContent = one.hint;
       hint_img.src = one.hint_url;
-      if ( one.hint_gif ) hint_henry.src = 'assets/' + one.hint_gif;
+      if ( one.hint_gif ) hint_henry.src = one.hint_gif;
     });
 }
 
