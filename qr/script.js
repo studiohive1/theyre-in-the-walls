@@ -182,11 +182,25 @@ setInterval( () => {
 }, 500 );
 
 function get_question() {
+  db.from( 'progress' )
+    .select( 'challenge_id' )
+    .eq( 'user_id', user_id )
+    .eq( 'exhibit_id', 'telecomm' )
+    .eq( 'completed', true )
+    .then( result => {
+      const done_ids = result.data.map( row => row.challenge_id );
+      pick_question( done_ids );
+    });
+}
+
+function pick_question( done_ids ) {
   db.from( 'challenges' )
     .select( 'question, answer, challenge_id, hint, hint_url, hint_gif' )
     .eq( 'type', 'qr' )
     .then( result => {
-      const list = result.data;
+      let list = result.data.filter( row => !done_ids.includes( row.challenge_id ) );
+      if ( list.length === 0 ) list = result.data;
+
       const one = list[ Math.floor( Math.random() * list.length ) ];
 
       question.innerHTML = mark( one.question );
