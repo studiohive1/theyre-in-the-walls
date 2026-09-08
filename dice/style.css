@@ -37,13 +37,13 @@ canvas {
   font-size: 24px;
   letter-spacing: 1px;
   cursor: pointer;
-  background: url(assets/button-yellow.png) no-repeat;
+  background: url(assets/button-yellow.svg) no-repeat;
 }
 
 #action_btn:active {
   padding-bottom: 0;
   padding-top: 9px;
-  background-image: url(assets/button-yellow-pressed.png);
+  background-image: url(assets/button-yellow-pressed.svg);
 }
 
 #card {
@@ -63,12 +63,12 @@ canvas {
   width: 60px;
   height: 62px;
   border: none;
-  background: url(assets/button-pause.png) no-repeat;
+  background: url(assets/button-pause.svg) no-repeat;
   cursor: pointer;
 }
 
 #pause:active {
-  background-image: url(assets/button-pause-pressed.png);
+  background-image: url(assets/button-pause-pressed.svg);
 }
 
 #bar {
