@@ -16,6 +16,51 @@ a-scene .a-canvas {
   );
 }
 
+#back_eft_top, #back_eft_bottom {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 345px;
+  z-index: 1;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+#back_eft_top {
+  top: 0;
+  background: url(assets/pixel-effect-top.png) repeat-x;
+}
+
+#back_eft_bottom {
+  bottom: 0;
+  background: url(assets/pixel-effect-bottom.png) repeat-x;
+}
+
+#bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#pause {
+  width: 60px;
+  height: 62px;
+  border: none;
+  background: url(assets/button-pause.svg) no-repeat;
+  image-rendering: pixelated;
+  cursor: pointer;
+}
+
+#pause:active {
+  background-image: url(assets/button-pause-pressed.svg);
+}
+
 #frame {
   position: fixed;
   top: 50%;
