@@ -107,7 +107,7 @@ submit.addEventListener( 'click', () => {
 
 next.addEventListener( 'click', () => {
   play( click_sound );
-  location.href = '../dice/?reroll=1';
+  location.href = '../dice/';
 });
 
 pause.addEventListener( 'click', () => {
@@ -142,7 +142,7 @@ popup_close.addEventListener( 'click', () => {
 
 popup_yes.addEventListener( 'click', () => {
   play( click_sound );
-  location.href = '../dice/';
+  location.href = '../dice/?reroll=1';
 });
 
 const supa_api = 'https://jxsilhqrwbnytjghdwdw.supabase.co/';
